@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="English">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="DocNan">
+
+
+    <meta name="subtitle" content="Our dream is the Galaxy and stars!">
+
+
+    <meta name="description" content="Personal notes on programming and more that can be shared!">
+
+
+
+<title>Python Module Imports | Blog of DocNan</title>
+<link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+
+
+    <link rel="icon" href="../../../../WenTong_ink_bambo_small.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="../../../../css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="../../../../js/script.js"></script>
+    
+    <script src="../../../../js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Blog of DocNan</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../Publications">Publications</a>
+                
+                    <a class="menu-item" href="../../../../tags">Tags</a>
+                
+                    <a class="menu-item" href="../../../../about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Blog of DocNan</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../Publications">Publications</a>
+                
+                    <a class="menu-item" href="../../../../tags">Tags</a>
+                
+                    <a class="menu-item" href="../../../../about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Python Module Imports</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">DocNan</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">April 13, 2020&nbsp;&nbsp;9:25:38</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>In programming, sometimes we need to make define our own function modules for further usage. Thus we should import/declare there user defined modules in our current script. In Matlab, we do this by addpath() function, in Python, we need to make proper imports or to convert our modules as packages. Here we give a brief introduction on how to make proper imports of external modules in python 3 version.</p>
+<h1 id="direct-imports"><a class="markdownIt-Anchor" href="#direct-imports"></a> Direct imports</h1>
+<h2 id="module-file-locates-in-current-working-directory-cwd"><a class="markdownIt-Anchor" href="#module-file-locates-in-current-working-directory-cwd"></a> Module file locates in Current Working Directory (CWD)</h2>
+<p>Suppose the module .py file locates in your CWD directory, then you can direction import the module as:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># file relative locations</span><br><span class="line"># ...CWD/runing_scripts.py</span><br><span class="line"># ...CWD/module_a.py</span><br><span class="line">import module_a</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">## Module file not locates in CWD</span><br><span class="line">If the module file are not locates in your CWD, then you must add the relative/absolute search path to your python compiler. You can achiever this via:</span><br></pre></td></tr></table></figure>
+<h1 id="file-relative-locations"><a class="markdownIt-Anchor" href="#file-relative-locations"></a> file relative locations</h1>
+<h1 id="dir1cwdruning_scriptspy"><a class="markdownIt-Anchor" href="#dir1cwdruning_scriptspy"></a> .dir1/CWD/runing_scripts.py</h1>
+<h1 id="dir1cwdmodule_apy"><a class="markdownIt-Anchor" href="#dir1cwdmodule_apy"></a> .dir1/CWD/module_a.py</h1>
+<h1 id="dir2module_bpy"><a class="markdownIt-Anchor" href="#dir2module_bpy"></a> .dir2/module_b.py</h1>
+<p>import sys<br />
+sys.path.append(’…/dir2/’)<br />
+from dir2 import module_b</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">It is recommended to use relative path to import module rather than absolute path. Because sometimes you may need to sync your code on different PCs or share them with other people. You can not guarantee that your code absolute path is the same on all PCs.   </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Module package</span><br><span class="line">## How to create/declare a python module package</span><br><span class="line">In python, you can put your python module .py files in a particular directory eg. In python 2. version, you need to create a &apos;__init__.py&apos; file in this direction. In python 3. version, you may not need to create this file. Then you can import this package and call any module and functions.</span><br></pre></td></tr></table></figure>
+<h1 id="file-relative-locations-2"><a class="markdownIt-Anchor" href="#file-relative-locations-2"></a> file relative locations</h1>
+<h1 id="package_dirinitpy"><a class="markdownIt-Anchor" href="#package_dirinitpy"></a> …/package_dir/<strong>init</strong>.py</h1>
+<h1 id="package_dirmodule_apy"><a class="markdownIt-Anchor" href="#package_dirmodule_apy"></a> …/package_dir/module_a.py</h1>
+<h1 id="package_dirmodule_bpy"><a class="markdownIt-Anchor" href="#package_dirmodule_bpy"></a> …/package_dir/module_b.py</h1>
+<h1 id="package_dirsub_dir1module_a1py"><a class="markdownIt-Anchor" href="#package_dirsub_dir1module_a1py"></a> …/package_dir/sub_dir1/module_a1.py</h1>
+<h1 id="package_dirsub_dir1subsub_dir12module_b11py"><a class="markdownIt-Anchor" href="#package_dirsub_dir1subsub_dir12module_b11py"></a> …/package_dir/sub_dir1/subsub_dir12/module_b11.py</h1>
+<p>import sys<br />
+sys.path.append(’…/’)<br />
+from package_dir import module_a<br />
+from package_dir.sub_dir1 import module_a1<br />
+from package_dir.sub_dir1.subsub_dir12 import module_b11</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## Relative imports within the same module</span><br><span class="line">For files locates in the same module packages, you can make relative imports not based on CWD but on the calling module file. For example, in module_a.py you wish to use module function within module_b11.py. Then you can write like this in module_a.py.</span><br></pre></td></tr></table></figure>
+<h1 id="code-for-imports-in-module_apy"><a class="markdownIt-Anchor" href="#code-for-imports-in-module_apy"></a> code for imports in module_a.py</h1>
+<p>from .sub_dir1/subsub_dir12 import module_b11</p>
+<pre class="highlight"><code class="">
+
+## Import external module outside current package
+Currently, I haven't find a correct way to relative import external module files outside a module. The temporary solution is to copy the external module file inside the current package. In the future, when I find useful solution, I will update this part.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</code></pre>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>DocNan</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://docnan.github.io/2020/04/13/python-module-imports/">https://docnan.github.io/2020/04/13/python-module-imports/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>我们的目标是星辰大海！</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="../../../../tags/Python/"># Python</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();" target="_blank" rel="noopener">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="../../../05/21/Python-symbolic-calculation/">Python Symbolic Calculation</a>
+            
+            
+            <a class="next" rel="next" href="../../../03/28/linux-configuration/">Linux Configuration</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© DocNan | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

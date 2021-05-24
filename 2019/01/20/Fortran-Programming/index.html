@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="English">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="DocNan">
+
+
+    <meta name="subtitle" content="Our dream is the Galaxy and stars!">
+
+
+    <meta name="description" content="Personal notes on programming and more that can be shared!">
+
+
+
+<title>Fortran Programming | Blog of DocNan</title>
+<link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+
+
+    <link rel="icon" href="../../../../WenTong_ink_bambo_small.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="../../../../css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="../../../../js/script.js"></script>
+    
+    <script src="../../../../js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Blog of DocNan</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../Publications">Publications</a>
+                
+                    <a class="menu-item" href="../../../../tags">Tags</a>
+                
+                    <a class="menu-item" href="../../../../about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Blog of DocNan</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../Publications">Publications</a>
+                
+                    <a class="menu-item" href="../../../../tags">Tags</a>
+                
+                    <a class="menu-item" href="../../../../about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Fortran Programming</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">DocNan</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">January 20, 2019&nbsp;&nbsp;21:46:55</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>Comparing with matlab/python, fortran program runs faster for loops after compiling. Although fortran is an old language, it is capable of parallel computing and still wildly used in scientific computing today.</p>
+<h1 id="hello-world"><a class="markdownIt-Anchor" href="#hello-world"></a> Hello world</h1>
+<p>First we introduce a minibird example of the fortran programming for a fresh start.</p>
+<h2 id="helloworld-source-code"><a class="markdownIt-Anchor" href="#helloworld-source-code"></a> Helloworld source code</h2>
+<p>Here we demonstrate a minibird Helloworld example of the fotran programming language.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">! helloworld.f90 test</span><br><span class="line">program main</span><br><span class="line">    implicit none</span><br><span class="line">    write(*,*) &quot;Hello !&quot;</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<h2 id="complile-and-run-fortran-on-linux"><a class="markdownIt-Anchor" href="#complile-and-run-fortran-on-linux"></a> Complile and run fortran on linux</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ifort/gfortran helloworld.f90 -o hello.out</span><br><span class="line">./hello.out</span><br></pre></td></tr></table></figure>
+<p>After execute these command in terminal, you should be able to view the printed output in your terminal window. Here, ifort is for intel fortran compiler, gfortran is for GNU fortran compiler.</p>
+<h1 id="function-definition"><a class="markdownIt-Anchor" href="#function-definition"></a> Function definition</h1>
+<h2 id="singular-value-function"><a class="markdownIt-Anchor" href="#singular-value-function"></a> Singular value function</h2>
+<p>Here we demonstrate the definition of a single value function z = f(x, y).</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">program main</span><br><span class="line">    implicit none</span><br><span class="line">    real :: x = 3</span><br><span class="line">    real :: y = 2</span><br><span class="line">    real :: z</span><br><span class="line">    real, extent :: fun1</span><br><span class="line">    z = add(x, y)</span><br><span class="line">    write (*, *) z</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">function fun1(x, y)</span><br><span class="line">    implicit none</span><br><span class="line">    real :: x, y</span><br><span class="line">    real :: fun1</span><br><span class="line">    fun1 = x*y</span><br><span class="line">    return</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<h2 id="multivalue-function"><a class="markdownIt-Anchor" href="#multivalue-function"></a> Multivalue function</h2>
+<p>Here we demonstrate the definition of a multivalue function [c, d] = f(a, b). Output of more than one variable, you should use subroutine other than function. Function format in fortran can only have one output.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">program main</span><br><span class="line">    implicit none</span><br><span class="line">    real :: a, b, c, d</span><br><span class="line"></span><br><span class="line">    a = 10</span><br><span class="line">    b = 30</span><br><span class="line">    call multifun(a, b, c, d)</span><br><span class="line">    write (*, *) a</span><br><span class="line">    write (*, *) b</span><br><span class="line">    write (*, *) c</span><br><span class="line">    write (*, *) d</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">subroutine multifun(a, b, c, d)</span><br><span class="line">    ! reference [1] https://stackoverflow.com/questions</span><br><span class="line">    ! /37120263/function-which-returns-multiple-values</span><br><span class="line">    implicit none</span><br><span class="line">    real, intent(in) :: a, b</span><br><span class="line">    real, intent(out):: c, d</span><br><span class="line">    c = a + b</span><br><span class="line">    d = a*b</span><br><span class="line">end subroutine</span><br></pre></td></tr></table></figure>
+<h2 id="optional-inputs"><a class="markdownIt-Anchor" href="#optional-inputs"></a> Optional inputs</h2>
+<p>The optional inputs of fortran is a bit like python, where you can given the inputs of fortran variable without consider their correct order [1].</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">module procs</span><br><span class="line">contains</span><br><span class="line">  real function calc (first, second, third)</span><br><span class="line">  implicit none</span><br><span class="line">  real, intent(in) :: first, second, third</span><br><span class="line">  calc = (first - second)/third</span><br><span class="line">  end function procs</span><br><span class="line">end module procs</span><br><span class="line"></span><br><span class="line">program test_keywords</span><br><span class="line">use procs</span><br><span class="line">implicit none</span><br><span class="line">write (*,*) cals(3, 1, 2)</span><br><span class="line">write (*,*) calc(first=3, second=1, third=2)</span><br><span class="line">write (*,*) calc(third=2, first=3, second=1)</span><br><span class="line">end program test_keywords</span><br></pre></td></tr></table></figure>
+<p>All the three methods to call the function cals() returns the same result regardless of the calling order of the arguments.</p>
+<h1 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h1>
+<p>[1] S. Chapman, 2007, “fotran 95/2003 for scientists and engineers”, 3rd edition, McGraw-Hill press…</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>DocNan</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://docnan.github.io/2019/01/20/Fortran-Programming/">https://docnan.github.io/2019/01/20/Fortran-Programming/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>我们的目标是星辰大海！</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="../../../../tags/Fortran/"># Fortran</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();" target="_blank" rel="noopener">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="../../../02/06/Balance-of-scale/">Balance of scale</a>
+            
+            
+            <a class="next" rel="next" href="../../17/Python-MDSplus/">Python MDSplus</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© DocNan | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

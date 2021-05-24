@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="English">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="DocNan">
+
+
+    <meta name="subtitle" content="Our dream is the Galaxy and stars!">
+
+
+    <meta name="description" content="Personal notes on programming and more that can be shared!">
+
+
+
+<title>Blog with Hexo on Github | Blog of DocNan</title>
+<link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+
+
+    <link rel="icon" href="../../../../WenTong_ink_bambo_small.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="../../../../css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="../../../../js/script.js"></script>
+    
+    <script src="../../../../js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Blog of DocNan</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../Publications">Publications</a>
+                
+                    <a class="menu-item" href="../../../../tags">Tags</a>
+                
+                    <a class="menu-item" href="../../../../about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Blog of DocNan</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../Publications">Publications</a>
+                
+                    <a class="menu-item" href="../../../../tags">Tags</a>
+                
+                    <a class="menu-item" href="../../../../about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Blog with Hexo on Github</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">DocNan</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">June 16, 2018&nbsp;&nbsp;19:31:11</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="basic-preparations"><a class="markdownIt-Anchor" href="#basic-preparations"></a> Basic preparations</h1>
+<h2 id="installation"><a class="markdownIt-Anchor" href="#installation"></a> installation</h2>
+<p>The installation process mainly follows the blogs in reference <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>'<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>.</p>
+<h2 id="choose-proper-theme"><a class="markdownIt-Anchor" href="#choose-proper-theme"></a> choose proper theme</h2>
+<p>Hexo is born with the markdown script which could contain math equation, tables and lots lots more. For a long article written in markdown, it is important to display a table of contents for better navigation. However, the [toc] is not supported by Github markdown, you could search for a Hexo theme that supports table of contents. Here I choose the Aath theme developed by lewis-geek in Shanghai. His theme is maintained on Github: <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank" rel="noopener">https://github.com/lewis-geek/hexo-theme-Aath</a>. I have made several small changes to his theme locally to unify the contents all to English. Here is the main change:</p>
+<h3 id="aath-theme"><a class="markdownIt-Anchor" href="#aath-theme"></a> Aath theme<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></h3>
+<p>And before you use Aath theme, you should install the necessary support modules with the command:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># install the support modules</span><br><span class="line">npm install --save hexo-renderer-sass</span><br><span class="line"># clone Aath module</span><br><span class="line">cd .../hexo/theme</span><br><span class="line">git clone -b master https://github.com/lewis-geek/hexo-theme-Aath.git themes/aath</span><br></pre></td></tr></table></figure>
+<h3 id="apply-aath-theme"><a class="markdownIt-Anchor" href="#apply-aath-theme"></a> apply aath theme</h3>
+<p>in hexo -&gt; _config.yml, change the theme to aath.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: aath</span><br></pre></td></tr></table></figure>
+<h3 id="in-hexo-theme-aath-_configyml"><a class="markdownIt-Anchor" href="#in-hexo-theme-aath-_configyml"></a> In hexo -&gt; theme -&gt; aath -&gt; _config.yml</h3>
+<p>Change the Chinese menu option name to English:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># main menu navigation</span></span><br><span class="line">menu:</span><br><span class="line">  Home: /</span><br><span class="line">  About: /about</span><br><span class="line">  Archives: /archives</span><br><span class="line">  tags: /tags</span><br></pre></td></tr></table></figure>
+<h3 id="in-aath-layout-postejs"><a class="markdownIt-Anchor" href="#in-aath-layout-postejs"></a> In aath -&gt; layout -&gt; post.ejs</h3>
+<p>Change all the Chinese expressions to English.</p>
+<h1 id="display-latex-formula"><a class="markdownIt-Anchor" href="#display-latex-formula"></a> Display latex formula<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>’<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></h1>
+<h2 id="install-pandoc"><a class="markdownIt-Anchor" href="#install-pandoc"></a> Install pandoc</h2>
+<p>In order to display latex formula in your markdown file to your blog home page, you need to install pandoc. It could render the latex syntax in markdown to html5. This is the final display method used by website.</p>
+<h2 id="install-latex-component-to-hexo"><a class="markdownIt-Anchor" href="#install-latex-component-to-hexo"></a> Install latex component to hexo</h2>
+<p>To make these configuration, I follows the instruction on these blog. Later I found that It start to work after a modification:</p>
+<ul>
+<li>Step 1: modify configure file<br />
+In theme file: hexo -&gt;themes -&gt; aath -&gt; layout -&gt; _partial -&gt; head.ejs. Add the<br />
+above codes in it:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css&quot;&gt;</span><br><span class="line">&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Step 2<br />
+Install the hexo latex addons by:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-pandoc --save</span><br><span class="line">npm install hexo-katex --save</span><br></pre></td></tr></table></figure>
+<p>After these two steps, the latex rendering on web page begin to work with my theme.</p>
+<h1 id="bugs"><a class="markdownIt-Anchor" href="#bugs"></a> Bugs</h1>
+<h2 id="hexo-port-4000-has-been-used"><a class="markdownIt-Anchor" href="#hexo-port-4000-has-been-used"></a> hexo port 4000 has been used</h2>
+<p>You can switch to port 5000 with this command</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server -p 5000</span><br></pre></td></tr></table></figure>
+<h2 id="typeerror-cannot-read-property-offset-of-null"><a class="markdownIt-Anchor" href="#typeerror-cannot-read-property-offset-of-null"></a> TypeError Cannot read property ‘offset’ of null<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></h2>
+<p>Chang your timezone in the configure file of hexo: _config.yml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timezone: Asia/Shanghai</span><br></pre></td></tr></table></figure>
+<h1 id="markdown-style-setting"><a class="markdownIt-Anchor" href="#markdown-style-setting"></a> Markdown style setting</h1>
+<h2 id="tags"><a class="markdownIt-Anchor" href="#tags"></a> Tags</h2>
+<p>The Tags of each blog will be set with caption on the first letter of the word.</p>
+<h2 id="md-titles-on-each-level"><a class="markdownIt-Anchor" href="#md-titles-on-each-level"></a> MD titles on each level</h2>
+<p>The .md blog document will also have capital letter on the first word.</p>
+<h2 id="space"><a class="markdownIt-Anchor" href="#space"></a> Space</h2>
+<p>The distance of sub-level in .md blog file will be set as double lines. The distance between top levels will be set as 4 lines. Also the space between “```” separated source codes will have at least one line space.</p>
+<h1 id="references"><a class="markdownIt-Anchor" href="#references"></a> References:</h1>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html" target="_blank" rel="noopener">https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><a href="http://www.cnblogs.com/zhcncn/p/4097881.html" target="_blank" rel="noopener">http://www.cnblogs.com/zhcncn/p/4097881.html</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p><a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank" rel="noopener">https://github.com/lewis-geek/hexo-theme-Aath</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p><a href="http://lowrank.science/Hexo-KaTeX/" target="_blank" rel="noopener">http://lowrank.science/Hexo-KaTeX/</a> <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p><a href="http://dawnote.net/2017/12/01/%E5%A6%82%E4%BD%95%E5%9C%A8HEXO%E4%B8%AD%E6%B8%B2%E6%9F%93Latex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/" target="_blank" rel="noopener">http://dawnote.net/2017/12/01/如何在HEXO中渲染Latex数学公式/</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p><a href="https://my.oschina.net/xzfx/blog/519932" target="_blank" rel="noopener">https://my.oschina.net/xzfx/blog/519932</a> <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>DocNan</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://docnan.github.io/2018/06/16/Blog-with-Hexo-on-Github/">https://docnan.github.io/2018/06/16/Blog-with-Hexo-on-Github/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>我们的目标是星辰大海！</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="../../../../tags/Hexo/"># Hexo</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();" target="_blank" rel="noopener">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="../python-graphics/">Python Graphics</a>
+            
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© DocNan | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

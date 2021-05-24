@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="English">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="DocNan">
+
+
+    <meta name="subtitle" content="Our dream is the Galaxy and stars!">
+
+
+    <meta name="description" content="Personal notes on programming and more that can be shared!">
+
+
+
+<title>Python Symbolic Calculation | Blog of DocNan</title>
+<link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+
+
+    <link rel="icon" href="../../../../WenTong_ink_bambo_small.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="../../../../css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="../../../../js/script.js"></script>
+    
+    <script src="../../../../js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Blog of DocNan</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../Publications">Publications</a>
+                
+                    <a class="menu-item" href="../../../../tags">Tags</a>
+                
+                    <a class="menu-item" href="../../../../about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Blog of DocNan</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../Publications">Publications</a>
+                
+                    <a class="menu-item" href="../../../../tags">Tags</a>
+                
+                    <a class="menu-item" href="../../../../about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Python Symbolic Calculation</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">DocNan</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">May 21, 2020&nbsp;&nbsp;18:12:05</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>Python language has both good support of numerical calculation as well as symbolic calculation. SymPy module actually is the one for symbolic calculation in python [1][2]. Here we give some brief introduction to its usage in symbolic calculation.</p>
+<h1 id="basic-symbolic-operations"><a class="markdownIt-Anchor" href="#basic-symbolic-operations"></a> Basic symbolic operations</h1>
+<h2 id="define-symbolic-expressions"><a class="markdownIt-Anchor" href="#define-symbolic-expressions"></a> Define symbolic expressions</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import sympy</span><br><span class="line">x, y, c1, c2 = sympy.symbols(&apos;x, y, c1, c2&apos;, real=True)</span><br></pre></td></tr></table></figure>
+<h2 id="substitute-value-to-symbolic-expressions"><a class="markdownIt-Anchor" href="#substitute-value-to-symbolic-expressions"></a> Substitute value to symbolic expressions</h2>
+<h3 id="substitute-number"><a class="markdownIt-Anchor" href="#substitute-number"></a> Substitute number</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x_new = x.subs(3)</span><br><span class="line">z = c1*x + c2*y</span><br><span class="line">z_new = z.subs(&#123;c1:1, c2:3&#125;)</span><br></pre></td></tr></table></figure>
+<p>Notice the difference between the value substitution for expressions with only one variable and that with more than one variables.</p>
+<h3 id="substitute-other-symbolic-expressions"><a class="markdownIt-Anchor" href="#substitute-other-symbolic-expressions"></a> Substitute other symbolic expressions</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y_new = sympy.Subs(x**2, y-1)</span><br></pre></td></tr></table></figure>
+<p>What you will get is: <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>y</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo>∗</mo><mo>∗</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">(y-1)**2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mclose">)</span><span class="mbin">∗</span><span class="mord">∗</span><span class="mord mathrm">2</span></span></span></span>.</p>
+<h3 id="simplify-the-displayed-results"><a class="markdownIt-Anchor" href="#simplify-the-displayed-results"></a> Simplify the displayed results</h3>
+<p>Sometimes, after symbolic calculation, the results will be a bunch of mass. You could make results displayed more elegantly with simplify commands [3].</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s_simple = sympy.simplify(s)</span><br></pre></td></tr></table></figure>
+<h1 id="complex-numbers-variables"><a class="markdownIt-Anchor" href="#complex-numbers-variables"></a> Complex numbers variables</h1>
+<h2 id="define-complex-symbolic-variables"><a class="markdownIt-Anchor" href="#define-complex-symbolic-variables"></a> Define complex symbolic variables</h2>
+<p>The complex symbolic variables are a combination of real and imaginary part. The imaginary unit: <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span> can be defined as:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import sympy</span><br><span class="line">sympy.I</span><br></pre></td></tr></table></figure>
+<h2 id="calculate-absolute-value-of-a-complex-variable"><a class="markdownIt-Anchor" href="#calculate-absolute-value-of-a-complex-variable"></a> Calculate absolute value of a complex variable</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># test complex symbolic calculation</span><br><span class="line">x, y = sympy.symbols(&apos;x, y&apos;, real=True) </span><br><span class="line">z = x + sympy.I*y</span><br><span class="line">abs_z = sympy.Abs(z)</span><br><span class="line">print(&apos;|z| = &apos;, abs_z)</span><br></pre></td></tr></table></figure>
+<h1 id="plot-with-sympy"><a class="markdownIt-Anchor" href="#plot-with-sympy"></a> Plot with sympy</h1>
+<h2 id="basic-plot"><a class="markdownIt-Anchor" href="#basic-plot"></a> Basic plot</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># test equation solve with multi-variables</span><br><span class="line">c1, c2, c3 = sympy.symbols(&apos;c1, c2, c3&apos;, real=True) </span><br><span class="line"># symbolic plot figures</span><br><span class="line">f0 = sympy.cos(x)</span><br><span class="line">f1 = sympy.cos(x) + c1</span><br><span class="line">f2 = f1.subs(&#123;c1:3&#125;)</span><br><span class="line">sympy.plot(f0)</span><br></pre></td></tr></table></figure>
+<h2 id="plot-more-curves-in-one-figure"><a class="markdownIt-Anchor" href="#plot-more-curves-in-one-figure"></a> Plot more curves in one figure</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sympy.plot(f0, f2)</span><br></pre></td></tr></table></figure>
+<p>Notice that, sympy and pylab are separated modules, thus we do not need to create a new with pylab.figure().</p>
+<h1 id="solve-equations"><a class="markdownIt-Anchor" href="#solve-equations"></a> Solve equations</h1>
+<h2 id="define-an-equation"><a class="markdownIt-Anchor" href="#define-an-equation"></a> Define an equation</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># test equation solve with multi-variables</span><br><span class="line">c1, c2, c3 = sympy.symbols(&apos;c1, c2, c3&apos;, real=True) </span><br><span class="line">eq1 = sympy.Eq(c1*x + c2*y + c3, 0)</span><br></pre></td></tr></table></figure>
+<p>This defines the equation: <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mn>1</mn><mi>x</mi><mo>+</mo><mi>c</mi><mn>2</mn><mi>y</mi><mo>+</mo><mi>c</mi><mn>3</mn><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">c1 x + c2 y + c3 = 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">c</span><span class="mord mathrm">1</span><span class="mord mathit">x</span><span class="mbin">+</span><span class="mord mathit">c</span><span class="mord mathrm">2</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mbin">+</span><span class="mord mathit">c</span><span class="mord mathrm">3</span><span class="mrel">=</span><span class="mord mathrm">0</span></span></span></span>.</p>
+<h2 id="solve-equation-for-a-particular-variable"><a class="markdownIt-Anchor" href="#solve-equation-for-a-particular-variable"></a> Solve equation for a particular variable</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sol1 = sympy.solve(eq1, x)</span><br><span class="line">sol2 = sympy.solve(e11, y)</span><br></pre></td></tr></table></figure>
+<p>Notice that for an equation with more than one variable, eg: <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo>)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(x, y) = 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">0</span></span></span></span>, you should specify which variable to solve. Otherwise the solver will solve the first variable by default.</p>
+<h1 id="symbolic-calculus"><a class="markdownIt-Anchor" href="#symbolic-calculus"></a> Symbolic calculus</h1>
+<h2 id="limitation"><a class="markdownIt-Anchor" href="#limitation"></a> Limitation</h2>
+<p>With sympy, you can even calculate limitations in calculus.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">oo = sympy.oo # define infinity</span><br><span class="line">fx = 1/(x**2+1)</span><br><span class="line">Lim1 = sympy.limit(fx, x, 0) </span><br><span class="line">Lim2 = sympy.limit(fx, x, oo)</span><br></pre></td></tr></table></figure>
+<h2 id="differential"><a class="markdownIt-Anchor" href="#differential"></a> Differential</h2>
+<p>Notice that for functions with more than one variable, you shall specify which variable to conduct differential.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f = c1*x + c2*y**2</span><br><span class="line">prime_fx = sympy.diff(f, x)</span><br><span class="line">prime_fy = sympy.diff(f, y)</span><br></pre></td></tr></table></figure>
+<h2 id="integration"><a class="markdownIt-Anchor" href="#integration"></a> Integration</h2>
+<p>You can calculate indefinite integration like this [3]:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ii = sympy.integrate(f, x)</span><br></pre></td></tr></table></figure>
+<p>You can also calculate definite integration by setting upper and lower limits of integral range.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># declare the infinity large</span><br><span class="line">oo = sympy.oo </span><br><span class="line">Id = sympy.integrate(f, (x, -oo, 5))</span><br></pre></td></tr></table></figure>
+<h2 id="taylors-expansion"><a class="markdownIt-Anchor" href="#taylors-expansion"></a> Taylor’s expansion</h2>
+<p>You can even apply Taylor’s expansion on any given functions [3].</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sympy.series(sympy.cos(2*x), x)</span><br></pre></td></tr></table></figure>
+<h1 id="practice-example"><a class="markdownIt-Anchor" href="#practice-example"></a> Practice example</h1>
+<h2 id="eg-solve-a-complex-circuit"><a class="markdownIt-Anchor" href="#eg-solve-a-complex-circuit"></a> Eg: Solve a complex circuit</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"># test the solution to a simple circuit</span><br><span class="line">C, L, R,omega = sympy.symbols(&apos;C, L, R, omega&apos;, real=True) </span><br><span class="line">Z1 = R</span><br><span class="line">Z2 = 1/(sympy.I*omega*C)</span><br><span class="line">Z3 = sympy.I*omega*L</span><br><span class="line"></span><br><span class="line">Z = Z1 + Z2 + Z3</span><br><span class="line">Z_simple = sympy.simplify(Z.expand(complex=True))</span><br><span class="line">abs_Z = sympy.Abs(Z)</span><br><span class="line"></span><br><span class="line"># calculate extrem values</span><br><span class="line">prime_abs_Z = sympy.diff(abs_Z, omega)</span><br><span class="line"># define the equation to be solved</span><br><span class="line">eq2 = sympy.Eq(prime_abs_Z, 0)</span><br><span class="line"># solve the equation about omega</span><br><span class="line">sol2 = sympy.solve(eq2, omega)</span><br><span class="line"># output of sol2</span><br><span class="line"># [-1/(sqrt(Abs(C))*sqrt(Abs(L))),</span><br><span class="line">#  1/(sqrt(Abs(C))*sqrt(Abs(L))),</span><br><span class="line">#  -I/(sqrt(Abs(C))*sqrt(Abs(L))),</span><br><span class="line">#  I/(sqrt(Abs(C))*sqrt(Abs(L)))]</span><br><span class="line"></span><br><span class="line">root2 = 1/(sympy.sqrt(sympy.Abs(C))*sympy.sqrt(sympy.Abs(L)))</span><br><span class="line">root2_simple = sympy.simplify(root2)</span><br><span class="line"></span><br><span class="line">abs_Z1 = abs_Z.subs(&#123;C:1, L:1, R:1&#125;)</span><br><span class="line">sympy.plot(abs_Z1, (omega, -15, 15))</span><br></pre></td></tr></table></figure>
+<p>This is just the analytic solution of alternating circuit with resonance frequency at: <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>ω</mi><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><msqrt><mrow><mi>L</mi><mi>C</mi></mrow></msqrt></mrow></mfrac></mrow><annotation encoding="application/x-tex">\omega = \frac{1}{\sqrt{LC}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.845108em;"></span><span class="strut bottom" style="height:1.395108em;vertical-align:-0.55em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">ω</span><span class="mrel">=</span><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.4841655em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="sqrt mord"><span class="sqrt-sign" style="top:-0.10595071428571423em;"><span class="style-wrap reset-scriptstyle scriptstyle uncramped">√</span></span><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1.4285714285714286em;">​</span></span><span class="mord scriptstyle cramped"><span class="mord mathit">L</span><span class="mord mathit" style="margin-right:0.07153em;">C</span></span></span><span style="top:-0.8488078571428571em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1.4285714285714286em;">​</span></span><span class="reset-scriptstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1.4285714285714286em;">​</span></span>​</span></span></span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span>.</p>
+<h1 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference:</h1>
+<p>[1] <a href="https://zhuanlan.zhihu.com/p/96738286" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/96738286</a></p>
+<p>[2] <a href="https://docs.sympy.org/latest/index.html" target="_blank" rel="noopener">https://docs.sympy.org/latest/index.html</a></p>
+<p>[3] <a href="https://scipy-lectures.org/packages/sympy.html#integration" target="_blank" rel="noopener">https://scipy-lectures.org/packages/sympy.html#integration</a></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>DocNan</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://docnan.github.io/2020/05/21/Python-symbolic-calculation/">https://docnan.github.io/2020/05/21/Python-symbolic-calculation/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>我们的目标是星辰大海！</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="../../../../tags/Python/"># Python</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();" target="_blank" rel="noopener">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="../../../07/20/Python-CPU-parallel-computation/">Python CPU parallel computation</a>
+            
+            
+            <a class="next" rel="next" href="../../../04/13/python-module-imports/">Python Module Imports</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© DocNan | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

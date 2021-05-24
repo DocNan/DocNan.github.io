@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="English">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="DocNan">
+
+
+    <meta name="subtitle" content="Our dream is the Galaxy and stars!">
+
+
+    <meta name="description" content="Personal notes on programming and more that can be shared!">
+
+
+
+<title>Publications | Blog of DocNan</title>
+<link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+
+
+    <link rel="icon" href="../WenTong_ink_bambo_small.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="../css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="../js/script.js"></script>
+    
+    <script src="../js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Blog of DocNan</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="../archives">Posts</a>
+                
+                    <a class="menu-item" href="../Publications">Publications</a>
+                
+                    <a class="menu-item" href="../tags">Tags</a>
+                
+                    <a class="menu-item" href="../about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Blog of DocNan</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="../archives">Posts</a>
+                
+                    <a class="menu-item" href="../Publications">Publications</a>
+                
+                    <a class="menu-item" href="../tags">Tags</a>
+                
+                    <a class="menu-item" href="../about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    <article class="post-wrap page">
+        
+        <h2 class="post-title">Publications</h2>
+        
+        <section class="post-content">
+            <p>Scientific Publications (1st Author):</p>
+<ul>
+<li>
+<p>Nan Chu et al, Observation of TAE mode driven by off-axis ECRH induced barely trapped energetic electrons in EAST tokamak, (2021) Nucl. Fusion 61, 046021, <a href="https://doi.org/10.1088/1741-4326/abe4b1" target="_blank" rel="noopener">https://doi.org/10.1088/1741-4326/abe4b1</a></p>
+</li>
+<li>
+<p>N. Chu, SymFields: An Open Source Symbolic Fields Analysis Tool for General Curvilinear Coordinates in Python, (2020) arXiv:2012.10723, <a href="https://arxiv.org/abs/2012.10723" target="_blank" rel="noopener">Symbolic Computation</a>.</p>
+</li>
+<li>
+<p>N. Chu, Alias sampling effect on the calculation of MHD mode number in fusion plasma, (2019), arXiv:1910.09181 <a href="https://arxiv.org/abs/1910.09181" target="_blank" rel="noopener">physics.plasm-ph</a>.</p>
+</li>
+<li>
+<p>N. Chu et al, Observation of toroidal Alfvén eigenmode excited by energetic electrons induced by static magnetic perturbations in the EAST tokamak, Nucl. Fusion <a href="http://iopscience.iop.org/article/10.1088/1741-4326/aad70c" target="_blank" rel="noopener">58 (2018) 104004</a></p>
+</li>
+</ul>
+<p>International Conferences (1st Author):</p>
+<ul>
+<li>N. Chu et al, Observation of Alfven eigenmodes triggered by static resonant magnetic perturbations in EAST ohmic heating plasma (Poster), 1st Asia-Pacific Conference on Plasma Physics (AAPPS-DPP), 18-22, 09.2017, Chengdu, China.</li>
+</ul>
+<p>Doctoral thesis (Full text in Chinese)</p>
+<ul>
+<li>CHU Nan, 2019, doctoral thesis, University of Science and Technology of China, “Experimental Study of the Effect of 3D Magnetic Perturbations on the Alfven Eigenmodes in the EAST Tokamak”, (三维磁扰动场对EAST托卡马克中阿尔芬本征模控制作用的实验研究) <a href="http://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CDFD&amp;filename=1019133099.nh" target="_blank" rel="noopener">Cnki link</a></li>
+</ul>
+
+        </section>
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© DocNan | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
