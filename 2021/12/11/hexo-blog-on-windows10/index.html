@@ -12,7 +12,7 @@
 
 
 
-<title>Vim Usage | Hexo</title>
+<title>hexo blog on windows10 | Hexo</title>
 
 
 
@@ -214,7 +214,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Vim Usage</h1>
+            <h1 class="post-title">hexo blog on windows10</h1>
             
                 <div class="post-meta">
                     
@@ -223,46 +223,57 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">May 10, 2019&nbsp;&nbsp;13:58:35</a>
+                        Date: <a href="#">December 11, 2021&nbsp;&nbsp;13:04:11</a>
                         </span>
                     
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="../../../../Publications/hexo/">hexo</a>
+                            
+                        </span>
                     
                 </div>
             
         </header>
 
         <div class="post-content">
-            <p>Vim is an important text editor that could be operated in terminal directly. Thus learn to use it is of utter importance.</p>
-<h1 id="configuration"><a class="markdownIt-Anchor" href="#configuration"></a> Configuration</h1>
-<h2 id="enable-cursor-movement-with-mouse"><a class="markdownIt-Anchor" href="#enable-cursor-movement-with-mouse"></a> Enable cursor movement with mouse</h2>
-<p>To enable movement of cursor by mouse, you need to edit or crate the ~/.vimrc file [1]. If this file do exist, you just need to add one line to it:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:set mouse=a</span><br></pre></td></tr></table></figure>
-<p>If you do not found this file in your ~/ directory, just create a .vimrc file and save the above line in it, then you will be able to move you curser freely with your mouse.</p>
-<h2 id="enable-cutcopypaste-in-vim"><a class="markdownIt-Anchor" href="#enable-cutcopypaste-in-vim"></a> Enable cut/copy/paste in vim</h2>
-<h1 id="text-operations"><a class="markdownIt-Anchor" href="#text-operations"></a> Text operations</h1>
-<h2 id="edit-file"><a class="markdownIt-Anchor" href="#edit-file"></a> Edit file</h2>
-<p>open/create a file in vim with the commend:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi filename.type</span><br></pre></td></tr></table></figure>
-<p>Type the above commend in the vim will enable these actions:</p>
+            <p>For nearly one year, I haven’t updated any new blog on my homepage. That’s because, the old Macbook where I deployed my hexo blog source code was not under frequently use. Now that my daily working laptop computer has switched to a new windows10 PC. To continue blogging on this new device, I spent sometime to sync the Mac old blogs and re-establish them on this new Windows machine. Here is a step by step brief summary of the whole processes. The re-establish of my blogs on the new windows machine mainly refers from the instruction on this page [<a href="https://zhuanlan.zhihu.com/p/26625249" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/26625249</a>].</p>
+<h1 id="install-git"><a class="markdownIt-Anchor" href="#install-git"></a> Install Git</h1>
+<p>The installation of Git on windows 10 has multiple benefits. First is the benefit for hexo blogging. Secondly, it will install a new bash terminal that can be open by right click menu in any folder. This greatly free me by hold shift key to call the window power shell. Git can be installed on windows by download the windows 64bit package from its official website [<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a>].</p>
+<h1 id="install-nordjs"><a class="markdownIt-Anchor" href="#install-nordjs"></a> Install Nord.js</h1>
+<p>Similarly, Nord.js can also be installed from its official website [<a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a>]. However, in order to use let hexo working normally, one should use the old version of nord.js below version 14. Because the latest node.js version starting from version 14 has some compatibility problem with hexo, which could lead to deploy errors [<a href="https://github.com/hexojs/hexo-deployer-git/issues/177" target="_blank" rel="noopener">https://github.com/hexojs/hexo-deployer-git/issues/177</a>].</p>
+<h1 id="install-hexo"><a class="markdownIt-Anchor" href="#install-hexo"></a> Install hexo</h1>
+<p>Installation of hexo can also be easily realized by these command, open the Git terminal and type:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h1 id="link-to-github-page"><a class="markdownIt-Anchor" href="#link-to-github-page"></a> Link to Github page</h1>
+<p>Once you installed hexo on windows 10, you can copy the old blogs to a new folder and set it as your new hexo blog main directory. Then your should sync your local blog with online Github homepage. This process is well described on the reference [<a href="https://zhuanlan.zhihu.com/p/26625249" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/26625249</a>] page and will not be repeated here.</p>
+<h1 id="local-blog-configurations"><a class="markdownIt-Anchor" href="#local-blog-configurations"></a> Local blog configurations</h1>
+<h2 id="choose-chic-theme"><a class="markdownIt-Anchor" href="#choose-chic-theme"></a> choose Chic theme</h2>
+<p>The hexo open source project offers various choices of blog themes, if you would like to spend that time and strength, you can even write your own blog themes. However, I do not have that much time to do this thing. After comparison of many themes, I found Chic theme [<a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank" rel="noopener">https://github.com/Siricee/hexo-theme-Chic</a>] developed by LiuZijian could well fit all my requirement. Whose theme offers my favourite features such as:</p>
 <ul>
-<li>insert (i)  will enter the ‘insert’ mode which will enable you to edit the file</li>
-<li>view   (ESC) will exit the insert mode and back into view mode</li>
-<li>write  (:w)  will write the changes into the file without leave the editing condition of the file, this operation is a bit like the save option when you have write some long text.</li>
-<li>exit   (:x)  will save the exit the file</li>
-<li>force exit (!x) will force to quite the file you are editing.</li>
+<li>simple and elegant blog page display without pictures that could cause load delay and distraction.</li>
+<li>float content menu in each blog for easy jump and view</li>
+<li>category and tags cloud for auto classification of all blog pages</li>
+<li>one click button to switch between white and black modes</li>
 </ul>
-<h2 id="enable-visual-selection-ctrlv"><a class="markdownIt-Anchor" href="#enable-visual-selection-ctrlv"></a> Enable Visual Selection (Ctrl+V)</h2>
-<p>Only after visual selection is turned on will you be able to copy, delete or paste the text in vim opened file. You can click ‘Ctrl+V’ to enter the visual mode, after you hit the two keys, there will be an ‘–visual–’ in the left bottom line in your vim terminal window.</p>
-<h3 id="copy-text-y"><a class="markdownIt-Anchor" href="#copy-text-y"></a> Copy Text (y)</h3>
-<p>After the selection in visual mode, you can copy the text by press ‘y’ key.</p>
-<h3 id="delete-text-d"><a class="markdownIt-Anchor" href="#delete-text-d"></a> Delete Text (d)</h3>
-<p>To delete the selected line of text, just press ‘d’ key.</p>
-<h3 id="paste-text"><a class="markdownIt-Anchor" href="#paste-text"></a> Paste Text §</h3>
-<p>To paste the selected lines to the desired location, just mode your cursor to the desired location and then press ‘p’ key after selection.</p>
-<p>Try to make some difference</p>
-<h3 id="great-not-not-at-all"><a class="markdownIt-Anchor" href="#great-not-not-at-all"></a> Great? Not not at all.</h3>
-<h1 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h1>
-<p>[1] <a href="https://www.jacoballred.com/web-dev/enabling-mouse-support-in-vim/" target="_blank" rel="noopener">https://www.jacoballred.com/web-dev/enabling-mouse-support-in-vim/</a></p>
+<p>Here, I really wish to thanks for all the contributions from LiuZijian for providing such good theme in hexo open source project!</p>
+<h2 id="change-page-icon"><a class="markdownIt-Anchor" href="#change-page-icon"></a> change page icon</h2>
+<p>After sometime, I finally located the default ico file location of hexo Chic theme. It is located at:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\hexo\themes\theme_Chic\source\favicon.ico</span><br></pre></td></tr></table></figure>
+<p>You can use this website [<a href="https://www.favicon-generator.org/" target="_blank" rel="noopener">https://www.favicon-generator.org/</a>] to online convert your favourite png/jpg image to .ico files [<a href="https://jdhao.github.io/2018/02/08/favicon-theme-next-setup/" target="_blank" rel="noopener">https://jdhao.github.io/2018/02/08/favicon-theme-next-setup/</a>]. Then you just need to place your ico at this location and replace the old ico in the /theme/.config as:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># favicon</span><br><span class="line"># favicon: /favicon_old5.ico</span><br><span class="line">favicon: /ink_bamboo_1kB.ico</span><br></pre></td></tr></table></figure>
+<p>Then run the hexo clean, generate and server command, you can check whether the page ico change is switched.</p>
+<h2 id="enable-category-and-tag-cloud"><a class="markdownIt-Anchor" href="#enable-category-and-tag-cloud"></a> enable category and tag cloud</h2>
+<p>To generate category and tag cloud in Chic them, you can follow the instruction on its official site. And to auto classify a blog page, you need to add new information in the header of a blog page such as this page:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: hexo blog on windows10</span><br><span class="line">tags: hexo</span><br><span class="line">category: hexo</span><br><span class="line">date: 2021-12-11 13:04:11</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<h1 id="local-page-debug"><a class="markdownIt-Anchor" href="#local-page-debug"></a> Local page debug</h1>
+<p>Once the local page source code is ready, you can render it on localhost:5000 for preview using these command:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s -p 5000</span><br></pre></td></tr></table></figure>
+<h1 id="deploy-to-github-homepage"><a class="markdownIt-Anchor" href="#deploy-to-github-homepage"></a> Deploy to GitHub homepage</h1>
+<p>Once the local page is debugged without errors, you can then deploy it online on Github page to share with the rest of the world with this command:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
         </div>
 
@@ -277,7 +288,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://docnan.github.io/2019/05/10/Vim-Usage/">https://docnan.github.io/2019/05/10/Vim-Usage/</a></span>
+                        <span><a href="https://docnan.github.io/2021/12/11/hexo-blog-on-windows10/">https://docnan.github.io/2021/12/11/hexo-blog-on-windows10/</a></span>
                     </p>
                 
                 
@@ -301,7 +312,7 @@
                 <span class="tag">
                     
                     
-                        <a href="../../../../tags/Linux/"># Linux</a>
+                        <a href="../../../../tags/hexo/"># hexo</a>
                     
                         
                 </span>
@@ -314,10 +325,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="../Bash-Script/">Bash Script</a>
             
-            
-            <a class="next" rel="next" href="../../../04/30/Standing-Wave/">Standing Wave</a>
+            <a class="next" rel="next" href="../../../11/15/hello-world/">Hello World</a>
             
         </section>
 
