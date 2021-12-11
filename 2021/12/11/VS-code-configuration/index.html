@@ -12,7 +12,7 @@
 
 
 
-<title>hexo blog on windows10 | Hexo</title>
+<title>VS code configuration | Hexo</title>
 
 
 
@@ -214,7 +214,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">hexo blog on windows10</h1>
+            <h1 class="post-title">VS code configuration</h1>
             
                 <div class="post-meta">
                     
@@ -223,14 +223,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">December 11, 2021&nbsp;&nbsp;13:04:11</a>
+                        Date: <a href="#">December 11, 2021&nbsp;&nbsp;15:46:18</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="../../../../Publications/hexo/">hexo</a>
+                                <a href="../../../../Publications/Linux/">Linux</a>
                             
                         </span>
                     
@@ -239,41 +239,19 @@
         </header>
 
         <div class="post-content">
-            <p>For nearly one year, I haven’t updated any new blog on my homepage. That’s because, the old Macbook where I deployed my hexo blog source code was not under frequently use. Now that my daily working laptop computer has switched to a new windows10 PC. To continue blogging on this new device, I spent sometime to sync the Mac old blogs and re-establish them on this new Windows machine. Here is a step by step brief summary of the whole processes. The re-establish of my blogs on the new windows machine mainly refers from the instruction on this page [<a href="https://zhuanlan.zhihu.com/p/26625249" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/26625249</a>].</p>
-<h1 id="install-git"><a class="markdownIt-Anchor" href="#install-git"></a> Install Git</h1>
-<p>The installation of Git on windows 10 has multiple benefits. First is the benefit for hexo blogging. Secondly, it will install a new bash terminal that can be open by right click menu in any folder. This greatly free me by hold shift key to call the window power shell. Git can be installed on windows by download the windows 64bit package from its official website [<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a>].</p>
-<h1 id="install-nordjs"><a class="markdownIt-Anchor" href="#install-nordjs"></a> Install Nord.js</h1>
-<p>Similarly, Nord.js can also be installed from its official website [<a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a>]. However, in order to use let hexo working normally, one should use the old version of nord.js below version 14. Because the latest node.js version starting from version 14 has some compatibility problem with hexo, which could lead to deploy errors [<a href="https://github.com/hexojs/hexo-deployer-git/issues/177" target="_blank" rel="noopener">https://github.com/hexojs/hexo-deployer-git/issues/177</a>].</p>
-<h1 id="install-hexo"><a class="markdownIt-Anchor" href="#install-hexo"></a> Install hexo</h1>
-<p>Installation of hexo can also be easily realized by these command, open the Git terminal and type:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<h1 id="link-to-github-page"><a class="markdownIt-Anchor" href="#link-to-github-page"></a> Link to Github page</h1>
-<p>Once you installed hexo on windows 10, you can copy the old blogs to a new folder and set it as your new hexo blog main directory. Then your should sync your local blog with online Github homepage. This process is well described on the reference [<a href="https://zhuanlan.zhihu.com/p/26625249" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/26625249</a>] page and will not be repeated here.</p>
-<h1 id="local-blog-configurations"><a class="markdownIt-Anchor" href="#local-blog-configurations"></a> Local blog configurations</h1>
-<h2 id="choose-chic-theme"><a class="markdownIt-Anchor" href="#choose-chic-theme"></a> choose Chic theme</h2>
-<p>The hexo open source project offers various choices of blog themes, if you would like to spend that time and strength, you can even write your own blog themes. However, I do not have that much time to do this thing. After comparison of many themes, I found Chic theme [<a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank" rel="noopener">https://github.com/Siricee/hexo-theme-Chic</a>] developed by LiuZijian could well fit all my requirement. Whose theme offers my favourite features such as:</p>
-<ul>
-<li>simple and elegant blog page display without pictures that could cause load delay and distraction.</li>
-<li>float content menu in each blog for easy jump and view</li>
-<li>category and tags cloud for auto classification of all blog pages</li>
-<li>one click button to switch between white and black modes</li>
-</ul>
-<p>Here, I really wish to thanks for all the contributions from LiuZijian for providing such good theme in hexo open source project!</p>
-<h2 id="change-page-icon"><a class="markdownIt-Anchor" href="#change-page-icon"></a> change page icon</h2>
-<p>After sometime, I finally located the default ico file location of hexo Chic theme. It is located at:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\hexo\themes\theme_Chic\source\favicon.ico</span><br></pre></td></tr></table></figure>
-<p>You can use this website [<a href="https://www.favicon-generator.org/" target="_blank" rel="noopener">https://www.favicon-generator.org/</a>] to online convert your favourite png/jpg image to .ico files [<a href="https://jdhao.github.io/2018/02/08/favicon-theme-next-setup/" target="_blank" rel="noopener">https://jdhao.github.io/2018/02/08/favicon-theme-next-setup/</a>]. Then you just need to place your ico at this location and replace the old ico in the /theme/.config as:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># favicon</span><br><span class="line"># favicon: /favicon_old5.ico</span><br><span class="line">favicon: /ink_bamboo_1kB.ico</span><br></pre></td></tr></table></figure>
-<p>Then run the hexo clean, generate and server command, you can check whether the page ico change is switched.</p>
-<h2 id="enable-category-and-tag-cloud"><a class="markdownIt-Anchor" href="#enable-category-and-tag-cloud"></a> enable category and tag cloud</h2>
-<p>To generate category and tag cloud in Chic them, you can follow the instruction on its official site. And to auto classify a blog page, you need to add new information in the header of a blog page such as this page:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: hexo blog on windows10</span><br><span class="line">tags: hexo</span><br><span class="line">category: hexo</span><br><span class="line">date: 2021-12-11 13:04:11</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<h1 id="local-page-debug"><a class="markdownIt-Anchor" href="#local-page-debug"></a> Local page debug</h1>
-<p>Once the local page source code is ready, you can render it on localhost:5000 for preview using these command:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s -p 5000</span><br></pre></td></tr></table></figure>
-<h1 id="deploy-to-github-homepage"><a class="markdownIt-Anchor" href="#deploy-to-github-homepage"></a> Deploy to GitHub homepage</h1>
-<p>Once the local page is debugged without errors, you can then deploy it online on Github page to share with the rest of the world with this command:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+            <p>‘VS code’ is a very useful and powerful source code editor for programmers and scientists. It has many configuration options for advanced users. However it is a bit difficulty to configure all these options because its options are edited rather than checked on buttons as normal windows applications. Here, I just share my configuration of VS code as a backup for easy use and reconfiguration after new installation.</p>
+<h1 id="default-setting"><a class="markdownIt-Anchor" href="#default-setting"></a> Default setting</h1>
+<p>The setting of VS code is different from normal software which uses check options and menus. VScode use script to control  the default settings. The configuration script file ‘settings.json’ is like this:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;workbench.editorAssociations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;viewType&quot;: &quot;jupyter.notebook.ipynb&quot;,</span><br><span class="line">            &quot;filenamePattern&quot;: &quot;*.ipynb&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;python.pythonPath&quot;: &quot;C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\Anaconda3_64\\python.exe&quot;,</span><br><span class="line">    &quot;terminal.integrated.shell.windows&quot;: &quot;C:\\WINDOWS\\System32\\cmd.exe&quot;,</span><br><span class="line">    &quot;editor.minimap.enabled&quot;: false,</span><br><span class="line">    &quot;editor.rulers&quot;: [</span><br><span class="line">        80,</span><br><span class="line">        120</span><br><span class="line">    ],</span><br><span class="line">    &quot;workbench.editor.untitled.hint&quot;: &quot;hidden&quot;,</span><br><span class="line">    &quot;editor.acceptSuggestionOnCommitCharacter&quot;: false,</span><br><span class="line">    &quot;editor.acceptSuggestionOnEnter&quot;: &quot;off&quot;,</span><br><span class="line">    &quot;editor.snippetSuggestions&quot;: &quot;none&quot;,</span><br><span class="line">    &quot;editor.quickSuggestions&quot;: &#123;</span><br><span class="line">        &quot;other&quot;: false,</span><br><span class="line">        &quot;comments&quot;: false,</span><br><span class="line">        &quot;strings&quot;: false</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="stop-workspace-trust-check"><a class="markdownIt-Anchor" href="#stop-workspace-trust-check"></a> Stop workspace trust check</h1>
+<p>Every time you opened a script file, VScode will ask your trust. To avoid this annoy thing, you can just change the default setting in VScode setting.json as:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#    &quot;security.workspace.trust.untrustedFiles&quot;: &quot;open&quot;,</span><br><span class="line">    &quot;security.workspace.trust.untrustedFiles&quot;: &quot;close&quot;,</span><br></pre></td></tr></table></figure>
+<h1 id="auto-wrap-long-line"><a class="markdownIt-Anchor" href="#auto-wrap-long-line"></a> Auto wrap long line</h1>
+<p>The setting method has been discussed in stackoverflow [<a href="https://stackoverflow.com/questions/38561881/how-do-i-turn-on-text-wrapping-by-default-in-vs-code" target="_blank" rel="noopener">https://stackoverflow.com/questions/38561881/how-do-i-turn-on-text-wrapping-by-default-in-vs-code</a>], you can just open the: File -&gt; preference -&gt; setting and change the “editor.wordWrap”: “off” to “on”.</p>
+<h1 id="add-vertical-width-indication-ruler-at-80"><a class="markdownIt-Anchor" href="#add-vertical-width-indication-ruler-at-80"></a> Add vertical width indication ruler at 80</h1>
+<p>You can also set custom the vertical ruler at 80 line length by change the settings.json [<a href="https://stackoverflow.com/questions/29968499/vertical-rulers-in-visual-studio-code" target="_blank" rel="noopener">https://stackoverflow.com/questions/29968499/vertical-rulers-in-visual-studio-code</a>]. You need to add a new line as “editor.rulers”: [80,120], and then save the .json file.</p>
+<h1 id="turn-on-english-spelling-check"><a class="markdownIt-Anchor" href="#turn-on-english-spelling-check"></a> Turn on English spelling check</h1>
+<p>When I write markdown blog with VS code, I would like to turn on the British English spelling check for the markdown source code. This could also be easily realized in VS code by install the 3rd plugin: ‘Code Spell Checker’ [<a href="https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker" target="_blank" rel="noopener">https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker</a>]. And then make the configuration as: Code Spell Checker -&gt; extension setting -&gt; C Spell: Language, en-GB</p>
 
         </div>
 
@@ -288,7 +266,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://docnan.github.io/2021/12/11/hexo-blog-on-windows10/">https://docnan.github.io/2021/12/11/hexo-blog-on-windows10/</a></span>
+                        <span><a href="https://docnan.github.io/2021/12/11/VS-code-configuration/">https://docnan.github.io/2021/12/11/VS-code-configuration/</a></span>
                     </p>
                 
                 
@@ -312,7 +290,7 @@
                 <span class="tag">
                     
                     
-                        <a href="../../../../tags/hexo/"># hexo</a>
+                        <a href="../../../../tags/Linux/"># Linux</a>
                     
                         
                 </span>
@@ -325,10 +303,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="../VS-code-configuration/">VS code configuration</a>
             
-            
-            <a class="next" rel="next" href="../../../11/15/hello-world/">Hello World</a>
+            <a class="next" rel="next" href="../hexo-blog-on-windows10/">hexo blog on windows10</a>
             
         </section>
 
