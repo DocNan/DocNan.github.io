@@ -239,19 +239,43 @@
         </header>
 
         <div class="post-content">
-            <p>‘VS code’ is a very useful and powerful source code editor for programmers and scientists. It has many configuration options for advanced users. However it is a bit difficulty to configure all these options because its options are edited rather than checked on buttons as normal windows applications. Here, I just share my configuration of VS code as a backup for easy use and reconfiguration after new installation.</p>
-<h1 id="default-setting"><a class="markdownIt-Anchor" href="#default-setting"></a> Default setting</h1>
-<p>The setting of VS code is different from normal software which uses check options and menus. VScode use script to control  the default settings. The configuration script file ‘settings.json’ is like this:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;workbench.editorAssociations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;viewType&quot;: &quot;jupyter.notebook.ipynb&quot;,</span><br><span class="line">            &quot;filenamePattern&quot;: &quot;*.ipynb&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;python.pythonPath&quot;: &quot;C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\Anaconda3_64\\python.exe&quot;,</span><br><span class="line">    &quot;terminal.integrated.shell.windows&quot;: &quot;C:\\WINDOWS\\System32\\cmd.exe&quot;,</span><br><span class="line">    &quot;editor.minimap.enabled&quot;: false,</span><br><span class="line">    &quot;editor.rulers&quot;: [</span><br><span class="line">        80,</span><br><span class="line">        120</span><br><span class="line">    ],</span><br><span class="line">    &quot;workbench.editor.untitled.hint&quot;: &quot;hidden&quot;,</span><br><span class="line">    &quot;editor.acceptSuggestionOnCommitCharacter&quot;: false,</span><br><span class="line">    &quot;editor.acceptSuggestionOnEnter&quot;: &quot;off&quot;,</span><br><span class="line">    &quot;editor.snippetSuggestions&quot;: &quot;none&quot;,</span><br><span class="line">    &quot;editor.quickSuggestions&quot;: &#123;</span><br><span class="line">        &quot;other&quot;: false,</span><br><span class="line">        &quot;comments&quot;: false,</span><br><span class="line">        &quot;strings&quot;: false</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="stop-workspace-trust-check"><a class="markdownIt-Anchor" href="#stop-workspace-trust-check"></a> Stop workspace trust check</h1>
-<p>Every time you opened a script file, VScode will ask your trust. To avoid this annoy thing, you can just change the default setting in VScode setting.json as:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#    &quot;security.workspace.trust.untrustedFiles&quot;: &quot;open&quot;,</span><br><span class="line">    &quot;security.workspace.trust.untrustedFiles&quot;: &quot;close&quot;,</span><br></pre></td></tr></table></figure>
-<h1 id="auto-wrap-long-line"><a class="markdownIt-Anchor" href="#auto-wrap-long-line"></a> Auto wrap long line</h1>
-<p>The setting method has been discussed in stackoverflow [<a href="https://stackoverflow.com/questions/38561881/how-do-i-turn-on-text-wrapping-by-default-in-vs-code" target="_blank" rel="noopener">https://stackoverflow.com/questions/38561881/how-do-i-turn-on-text-wrapping-by-default-in-vs-code</a>], you can just open the: File -&gt; preference -&gt; setting and change the “editor.wordWrap”: “off” to “on”.</p>
-<h1 id="add-vertical-width-indication-ruler-at-80"><a class="markdownIt-Anchor" href="#add-vertical-width-indication-ruler-at-80"></a> Add vertical width indication ruler at 80</h1>
-<p>You can also set custom the vertical ruler at 80 line length by change the settings.json [<a href="https://stackoverflow.com/questions/29968499/vertical-rulers-in-visual-studio-code" target="_blank" rel="noopener">https://stackoverflow.com/questions/29968499/vertical-rulers-in-visual-studio-code</a>]. You need to add a new line as “editor.rulers”: [80,120], and then save the .json file.</p>
-<h1 id="turn-on-english-spelling-check"><a class="markdownIt-Anchor" href="#turn-on-english-spelling-check"></a> Turn on English spelling check</h1>
-<p>When I write markdown blog with VS code, I would like to turn on the British English spelling check for the markdown source code. This could also be easily realized in VS code by install the 3rd plugin: ‘Code Spell Checker’ [<a href="https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker" target="_blank" rel="noopener">https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker</a>]. And then make the configuration as: Code Spell Checker -&gt; extension setting -&gt; C Spell: Language, en-GB</p>
+            <p>'VS code' is a very useful and powerful source code editor for
+programmers and scientists. It has many configuration options for
+advanced users. However it is a bit difficulty to configure all these
+options because its options are edited rather than checked on buttons as
+normal windows applications. Here, I just share my configuration of VS
+code as a backup for easy use and reconfiguration after new
+installation.</p>
+<h1 id="default-setting">Default setting</h1>
+<p>The setting of VS code is different from normal software which uses
+check options and menus. VScode use script to control the default
+settings. The configuration script file 'settings.json' is like this:
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;workbench.editorAssociations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;viewType&quot;: &quot;jupyter.notebook.ipynb&quot;,</span><br><span class="line">            &quot;filenamePattern&quot;: &quot;*.ipynb&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;python.pythonPath&quot;: &quot;C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\Anaconda3_64\\python.exe&quot;,</span><br><span class="line">    &quot;terminal.integrated.shell.windows&quot;: &quot;C:\\WINDOWS\\System32\\cmd.exe&quot;,</span><br><span class="line">    &quot;editor.minimap.enabled&quot;: false,</span><br><span class="line">    &quot;editor.rulers&quot;: [</span><br><span class="line">        80,</span><br><span class="line">        120</span><br><span class="line">    ],</span><br><span class="line">    &quot;workbench.editor.untitled.hint&quot;: &quot;hidden&quot;,</span><br><span class="line">    &quot;editor.acceptSuggestionOnCommitCharacter&quot;: false,</span><br><span class="line">    &quot;editor.acceptSuggestionOnEnter&quot;: &quot;off&quot;,</span><br><span class="line">    &quot;editor.snippetSuggestions&quot;: &quot;none&quot;,</span><br><span class="line">    &quot;editor.quickSuggestions&quot;: &#123;</span><br><span class="line">        &quot;other&quot;: false,</span><br><span class="line">        &quot;comments&quot;: false,</span><br><span class="line">        &quot;strings&quot;: false</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="stop-workspace-trust-check">Stop workspace trust check</h1>
+<p>Every time you opened a script file, VScode will ask your trust. To
+avoid this annoy thing, you can just change the default setting in
+VScode setting.json as: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#    &quot;security.workspace.trust.untrustedFiles&quot;: &quot;open&quot;,</span><br><span class="line">    &quot;security.workspace.trust.untrustedFiles&quot;: &quot;close&quot;,</span><br></pre></td></tr></table></figure></p>
+<h1 id="auto-wrap-long-line">Auto wrap long line</h1>
+<p>The setting method has been discussed in stackoverflow
+[https://stackoverflow.com/questions/38561881/how-do-i-turn-on-text-wrapping-by-default-in-vs-code],
+you can just open the: File -&gt; preference -&gt; setting and change
+the "editor.wordWrap": "off" to "on".</p>
+<h1 id="add-vertical-width-indication-ruler-at-80">Add vertical width
+indication ruler at 80</h1>
+<p>You can also set custom the vertical ruler at 80 line length by
+change the settings.json
+[https://stackoverflow.com/questions/29968499/vertical-rulers-in-visual-studio-code].
+You need to add a new line as "editor.rulers": [80,120], and then save
+the .json file.</p>
+<h1 id="turn-on-english-spelling-check">Turn on English spelling
+check</h1>
+<p>When I write markdown blog with VS code, I would like to turn on the
+British English spelling check for the markdown source code. This could
+also be easily realized in VS code by install the 3rd plugin: 'Code
+Spell Checker'
+[https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker].
+And then make the configuration as: Code Spell Checker -&gt; extension
+setting -&gt; C Spell: Language, en-GB</p>
 
         </div>
 
@@ -303,8 +327,10 @@
         </section>
         <section class="post-nav">
             
+                <a class="prev" rel="prev" href="../../../../2022/01/29/SI-Gaussian-units-conversion/">SI Gaussian units conversion</a>
             
-            <a class="next" rel="next" href="../hexo-blog-on-windows10/">hexo blog on windows10</a>
+            
+            <a class="next" rel="next" href="../hexo-blog-on-windows10/">hexo blog on Windows 10</a>
             
         </section>
 

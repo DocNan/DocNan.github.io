@@ -239,69 +239,99 @@
         </header>
 
         <div class="post-content">
-            <h1 id="basic-preparations"><a class="markdownIt-Anchor" href="#basic-preparations"></a> Basic preparations</h1>
-<h2 id="installation"><a class="markdownIt-Anchor" href="#installation"></a> installation</h2>
-<p>The installation process mainly follows the blogs in reference <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>'<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>.</p>
-<h2 id="choose-proper-theme"><a class="markdownIt-Anchor" href="#choose-proper-theme"></a> choose proper theme</h2>
-<p>Hexo is born with the markdown script which could contain math equation, tables and lots lots more. For a long article written in markdown, it is important to display a table of contents for better navigation. However, the [toc] is not supported by Github markdown, you could search for a Hexo theme that supports table of contents. Here I choose the Aath theme developed by lewis-geek in Shanghai. His theme is maintained on Github: <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank" rel="noopener">https://github.com/lewis-geek/hexo-theme-Aath</a>. I have made several small changes to his theme locally to unify the contents all to English. Here is the main change:</p>
-<h3 id="aath-theme"><a class="markdownIt-Anchor" href="#aath-theme"></a> Aath theme<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></h3>
-<p>And before you use Aath theme, you should install the necessary support modules with the command:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># install the support modules</span><br><span class="line">npm install --save hexo-renderer-sass</span><br><span class="line"># clone Aath module</span><br><span class="line">cd .../hexo/theme</span><br><span class="line">git clone -b master https://github.com/lewis-geek/hexo-theme-Aath.git themes/aath</span><br></pre></td></tr></table></figure>
-<h3 id="apply-aath-theme"><a class="markdownIt-Anchor" href="#apply-aath-theme"></a> apply aath theme</h3>
-<p>in hexo -&gt; _config.yml, change the theme to aath.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: aath</span><br></pre></td></tr></table></figure>
-<h3 id="in-hexo-theme-aath-_configyml"><a class="markdownIt-Anchor" href="#in-hexo-theme-aath-_configyml"></a> In hexo -&gt; theme -&gt; aath -&gt; _config.yml</h3>
-<p>Change the Chinese menu option name to English:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># main menu navigation</span></span><br><span class="line">menu:</span><br><span class="line">  Home: /</span><br><span class="line">  About: /about</span><br><span class="line">  Archives: /archives</span><br><span class="line">  tags: /tags</span><br></pre></td></tr></table></figure>
-<h3 id="in-aath-layout-postejs"><a class="markdownIt-Anchor" href="#in-aath-layout-postejs"></a> In aath -&gt; layout -&gt; post.ejs</h3>
+            <h1 id="basic-preparations">Basic preparations</h1>
+<h2 id="installation">installation</h2>
+<p>The installation process mainly follows the blogs in reference <a
+href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>'<a href="#fn2" class="footnote-ref"
+id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+<h2 id="choose-proper-theme">choose proper theme</h2>
+<p>Hexo is born with the markdown script which could contain math
+equation, tables and lots lots more. For a long article written in
+markdown, it is important to display a table of contents for better
+navigation. However, the [toc] is not supported by Github markdown, you
+could search for a Hexo theme that supports table of contents. Here I
+choose the Aath theme developed by lewis-geek in Shanghai. His theme is
+maintained on Github: https://github.com/lewis-geek/hexo-theme-Aath. I
+have made several small changes to his theme locally to unify the
+contents all to English. Here is the main change:</p>
+<h3 id="aath-theme4">Aath theme<a href="#fn3" class="footnote-ref"
+id="fnref3" role="doc-noteref"><sup>3</sup></a></h3>
+<p>And before you use Aath theme, you should install the necessary
+support modules with the command: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># install the support modules</span><br><span class="line">npm install --save hexo-renderer-sass</span><br><span class="line"># clone Aath module</span><br><span class="line">cd .../hexo/theme</span><br><span class="line">git clone -b master https://github.com/lewis-geek/hexo-theme-Aath.git themes/aath</span><br></pre></td></tr></table></figure></p>
+<h3 id="apply-aath-theme">apply aath theme</h3>
+<p>in hexo -&gt; _config.yml, change the theme to aath. <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: aath</span><br></pre></td></tr></table></figure></p>
+<h3 id="in-hexo---theme---aath---_config.yml">In hexo -&gt; theme -&gt;
+aath -&gt; _config.yml</h3>
+<p>Change the Chinese menu option name to English: <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># main menu navigation</span></span><br><span class="line">menu:</span><br><span class="line">  Home: /</span><br><span class="line">  About: /about</span><br><span class="line">  Archives: /archives</span><br><span class="line">  tags: /tags</span><br></pre></td></tr></table></figure></p>
+<h3 id="in-aath---layout---post.ejs">In aath -&gt; layout -&gt;
+post.ejs</h3>
 <p>Change all the Chinese expressions to English.</p>
-<h1 id="display-latex-formula"><a class="markdownIt-Anchor" href="#display-latex-formula"></a> Display latex formula<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>’<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></h1>
-<h2 id="install-pandoc"><a class="markdownIt-Anchor" href="#install-pandoc"></a> Install pandoc</h2>
-<p>In order to display latex formula in your markdown file to your blog home page, you need to install pandoc. It could render the latex syntax in markdown to html5. This is the final display method used by website.</p>
-<h2 id="install-latex-component-to-hexo"><a class="markdownIt-Anchor" href="#install-latex-component-to-hexo"></a> Install latex component to hexo</h2>
-<p>To make these configuration, I follows the instruction on these blog. Later I found that It start to work after a modification:</p>
+<h1 id="display-latex-formula56">Display latex formula<a href="#fn4"
+class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>'<a
+href="#fn5" class="footnote-ref" id="fnref5"
+role="doc-noteref"><sup>5</sup></a></h1>
+<h2 id="install-pandoc">Install pandoc</h2>
+<p>In order to display latex formula in your markdown file to your blog
+home page, you need to install pandoc. It could render the latex syntax
+in markdown to html5. This is the final display method used by
+website.</p>
+<h2 id="install-latex-component-to-hexo">Install latex component to
+hexo</h2>
+<p>To make these configuration, I follows the instruction on these blog.
+Later I found that It start to work after a modification:</p>
 <ul>
-<li>Step 1: modify configure file<br />
-In theme file: hexo -&gt;themes -&gt; aath -&gt; layout -&gt; _partial -&gt; head.ejs. Add the<br />
-above codes in it:</li>
+<li><p>Step 1: modify configure file In theme file: hexo -&gt;themes
+-&gt; aath -&gt; layout -&gt; _partial -&gt; head.ejs. Add the above
+codes in it: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css&quot;&gt;</span><br><span class="line">&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>Step 2 Install the hexo latex addons by: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-pandoc --save</span><br><span class="line">npm install hexo-katex --save</span><br></pre></td></tr></table></figure> After these
+two steps, the latex rendering on web page begin to work with my
+theme.</p></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css&quot;&gt;</span><br><span class="line">&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Step 2<br />
-Install the hexo latex addons by:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-pandoc --save</span><br><span class="line">npm install hexo-katex --save</span><br></pre></td></tr></table></figure>
-<p>After these two steps, the latex rendering on web page begin to work with my theme.</p>
-<h1 id="bugs"><a class="markdownIt-Anchor" href="#bugs"></a> Bugs</h1>
-<h2 id="hexo-port-4000-has-been-used"><a class="markdownIt-Anchor" href="#hexo-port-4000-has-been-used"></a> hexo port 4000 has been used</h2>
+<h1 id="bugs">Bugs</h1>
+<h2 id="hexo-port-4000-has-been-used">hexo port 4000 has been used</h2>
 <p>You can switch to port 5000 with this command</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server -p 5000</span><br></pre></td></tr></table></figure>
-<h2 id="typeerror-cannot-read-property-offset-of-null"><a class="markdownIt-Anchor" href="#typeerror-cannot-read-property-offset-of-null"></a> TypeError Cannot read property ‘offset’ of null<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></h2>
+<h2 id="typeerror-cannot-read-property-offset-of-null3">TypeError Cannot
+read property 'offset' of null<a href="#fn6" class="footnote-ref"
+id="fnref6" role="doc-noteref"><sup>6</sup></a></h2>
 <p>Chang your timezone in the configure file of hexo: _config.yml</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timezone: Asia/Shanghai</span><br></pre></td></tr></table></figure>
-<h1 id="markdown-style-setting"><a class="markdownIt-Anchor" href="#markdown-style-setting"></a> Markdown style setting</h1>
-<h2 id="tags"><a class="markdownIt-Anchor" href="#tags"></a> Tags</h2>
-<p>The Tags of each blog will be set with caption on the first letter of the word.</p>
-<h2 id="md-titles-on-each-level"><a class="markdownIt-Anchor" href="#md-titles-on-each-level"></a> MD titles on each level</h2>
-<p>The .md blog document will also have capital letter on the first word.</p>
-<h2 id="space"><a class="markdownIt-Anchor" href="#space"></a> Space</h2>
-<p>The distance of sub-level in .md blog file will be set as double lines. The distance between top levels will be set as 4 lines. Also the space between “```” separated source codes will have at least one line space.</p>
-<h1 id="references"><a class="markdownIt-Anchor" href="#references"></a> References:</h1>
-<hr class="footnotes-sep" />
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p><a href="https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html" target="_blank" rel="noopener">https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn2" class="footnote-item"><p><a href="http://www.cnblogs.com/zhcncn/p/4097881.html" target="_blank" rel="noopener">http://www.cnblogs.com/zhcncn/p/4097881.html</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn3" class="footnote-item"><p><a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank" rel="noopener">https://github.com/lewis-geek/hexo-theme-Aath</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn4" class="footnote-item"><p><a href="http://lowrank.science/Hexo-KaTeX/" target="_blank" rel="noopener">http://lowrank.science/Hexo-KaTeX/</a> <a href="#fnref4" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn5" class="footnote-item"><p><a href="http://dawnote.net/2017/12/01/%E5%A6%82%E4%BD%95%E5%9C%A8HEXO%E4%B8%AD%E6%B8%B2%E6%9F%93Latex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/" target="_blank" rel="noopener">http://dawnote.net/2017/12/01/如何在HEXO中渲染Latex数学公式/</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn6" class="footnote-item"><p><a href="https://my.oschina.net/xzfx/blog/519932" target="_blank" rel="noopener">https://my.oschina.net/xzfx/blog/519932</a> <a href="#fnref6" class="footnote-backref">↩︎</a></p>
-</li>
+<h1 id="markdown-style-setting">Markdown style setting</h1>
+<h2 id="tags">Tags</h2>
+<p>The Tags of each blog will be set with caption on the first letter of
+the word.</p>
+<h2 id="md-titles-on-each-level">MD titles on each level</h2>
+<p>The .md blog document will also have capital letter on the first
+word.</p>
+<h2 id="space">Space</h2>
+<p>The distance of sub-level in .md blog file will be set as double
+lines. The distance between top levels will be set as 4 lines. Also the
+space between "```" separated source codes will have at least one line
+space.</p>
+<h1 id="references">References:</h1>
+<section class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p><a
+href="https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html">https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html</a><a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><a
+href="http://www.cnblogs.com/zhcncn/p/4097881.html">http://www.cnblogs.com/zhcncn/p/4097881.html</a><a
+href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p><a
+href="https://github.com/lewis-geek/hexo-theme-Aath">https://github.com/lewis-geek/hexo-theme-Aath</a><a
+href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p><a
+href="http://lowrank.science/Hexo-KaTeX/">http://lowrank.science/Hexo-KaTeX/</a><a
+href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5" role="doc-endnote"><p><a
+href="http://dawnote.net/2017/12/01/如何在HEXO中渲染Latex数学公式/">http://dawnote.net/2017/12/01/如何在HEXO中渲染Latex数学公式/</a><a
+href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6" role="doc-endnote"><p><a
+href="https://my.oschina.net/xzfx/blog/519932">https://my.oschina.net/xzfx/blog/519932</a><a
+href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 

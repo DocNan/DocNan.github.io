@@ -239,43 +239,73 @@
         </header>
 
         <div class="post-content">
-            <p>Search path is a very important concept in Matlab programming. Your personal codes can only be run when it is added to the search path.</p>
-<h1 id="concept-of-directory"><a class="markdownIt-Anchor" href="#concept-of-directory"></a> Concept of directory</h1>
-<h2 id="current-directory"><a class="markdownIt-Anchor" href="#current-directory"></a> Current directory</h2>
-<p>The main script you shall execute should be set as working directory. This working directory is current direction. This concept is very easy to understand for those who are familiar with linux. However, windows users may get confused by this concept. You need to practice to understand it. You current directory can be view in matlab or linux with this command.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pwd</span><br></pre></td></tr></table></figure>
-<h2 id="relative-directory"><a class="markdownIt-Anchor" href="#relative-directory"></a> Relative directory</h2>
-<p>Relative directory refers to the directory relative to current directory. You can view relative directory with these command:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">% lookup 1 level directory relative to current directory</span><br><span class="line">ls ..</span><br><span class="line">% lookup 2 level directory relative to current directory</span><br><span class="line">ls ../..</span><br><span class="line">% lookup 3 level directory relative to current directory</span><br><span class="line">ls ../../..</span><br></pre></td></tr></table></figure>
-<p>You can also switch your current directory via the command cd</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ../</span><br><span class="line">cd ../../dir2</span><br></pre></td></tr></table></figure>
-<h1 id="add-search-path"><a class="markdownIt-Anchor" href="#add-search-path"></a> Add search path</h1>
-<p>If you wish to use a matlab module that are not matlab build-in function, you need first to add its directory to matlab search path. The concept of path is equal to the concept of directory. They are the same thing.</p>
-<h2 id="add-absolute-path"><a class="markdownIt-Anchor" href="#add-absolute-path"></a> Add absolute path</h2>
-<p>This can be down directly with addpath() command.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">addpath(&apos;/home/user/nan/codes/matlab/plot/&apos;);</span><br></pre></td></tr></table></figure>
-<p>However, add absolute path in your code will cause trouble when your code is used on a second machine where the absolute to your code is usually different to your first machine.</p>
-<h2 id="add-relative-path"><a class="markdownIt-Anchor" href="#add-relative-path"></a> Add relative path</h2>
-<p>Matlab will search the relative path based on the current directory. In this way, you can call functions defined under that directory. This could also be down with addpath function.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">addpath(&apos;../../matlab/plot&apos;)</span><br></pre></td></tr></table></figure>
-<h2 id="add-relative-path-in-script-outside-current-directory"><a class="markdownIt-Anchor" href="#add-relative-path-in-script-outside-current-directory"></a> Add relative path in script outside current directory</h2>
-<p>Sometimes, you have to call for a function not in current directory. And this function will need to addpath of directory relative to itself. eg. you have code structure like this:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/codes/matlab/run/runmain.m  % current working directory</span><br><span class="line">/codes/matlab/dir1/f2.m      % f2.m directory</span><br><span class="line">/codes/matlab/dir2/f3.m      % f3.m directory</span><br></pre></td></tr></table></figure>
-<p>So simply calling function f3 from function f2 will cause errors. In order to solve this problem, I wrote a small function to calculate the absolute path of a directory relative to a give path. This function is named as addmypath().</p>
-<h3 id="addmypath"><a class="markdownIt-Anchor" href="#addmypath"></a> addmypath()</h3>
-<p>Addmypath is a small script to add relative path within subscripts that are not located in current directory. During the building up of this script, some good references[1, 2, 3, 4] are looked over.</p>
+            <p>Search path is a very important concept in Matlab programming. Your
+personal codes can only be run when it is added to the search path.</p>
+<h1 id="concept-of-directory">Concept of directory</h1>
+<h2 id="current-directory">Current directory</h2>
+<p>The main script you shall execute should be set as working directory.
+This working directory is current direction. This concept is very easy
+to understand for those who are familiar with linux. However, windows
+users may get confused by this concept. You need to practice to
+understand it. You current directory can be view in matlab or linux with
+this command. <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pwd</span><br></pre></td></tr></table></figure></p>
+<h2 id="relative-directory">Relative directory</h2>
+<p>Relative directory refers to the directory relative to current
+directory. You can view relative directory with these command:
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">% lookup 1 level directory relative to current directory</span><br><span class="line">ls ..</span><br><span class="line">% lookup 2 level directory relative to current directory</span><br><span class="line">ls ../..</span><br><span class="line">% lookup 3 level directory relative to current directory</span><br><span class="line">ls ../../..</span><br></pre></td></tr></table></figure></p>
+<p>You can also switch your current directory via the command cd
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ../</span><br><span class="line">cd ../../dir2</span><br></pre></td></tr></table></figure></p>
+<h1 id="add-search-path">Add search path</h1>
+<p>If you wish to use a matlab module that are not matlab build-in
+function, you need first to add its directory to matlab search path. The
+concept of path is equal to the concept of directory. They are the same
+thing.</p>
+<h2 id="add-absolute-path">Add absolute path</h2>
+<p>This can be down directly with addpath() command. <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">addpath(&apos;/home/user/nan/codes/matlab/plot/&apos;);</span><br></pre></td></tr></table></figure> However,
+add absolute path in your code will cause trouble when your code is used
+on a second machine where the absolute to your code is usually different
+to your first machine.</p>
+<h2 id="add-relative-path">Add relative path</h2>
+<p>Matlab will search the relative path based on the current directory.
+In this way, you can call functions defined under that directory. This
+could also be down with addpath function. <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">addpath(&apos;../../matlab/plot&apos;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="add-relative-path-in-script-outside-current-directory">Add
+relative path in script outside current directory</h2>
+<p>Sometimes, you have to call for a function not in current directory.
+And this function will need to addpath of directory relative to itself.
+eg. you have code structure like this: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/codes/matlab/run/runmain.m  % current working directory</span><br><span class="line">/codes/matlab/dir1/f2.m      % f2.m directory</span><br><span class="line">/codes/matlab/dir2/f3.m      % f3.m directory</span><br></pre></td></tr></table></figure></p>
+<p>So simply calling function f3 from function f2 will cause errors. In
+order to solve this problem, I wrote a small function to calculate the
+absolute path of a directory relative to a give path. This function is
+named as addmypath().</p>
+<h3 id="addmypath">addmypath()</h3>
+<p>Addmypath is a small script to add relative path within subscripts
+that are not located in current directory. During the building up of
+this script, some good references[1, 2, 3, 4] are looked over.</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">abspath</span> = <span class="title">addmypath</span><span class="params">(filepath, relative_path)</span></span></span><br><span class="line"><span class="comment">% construct fullpath from relativepath relative to filepath</span></span><br><span class="line"><span class="comment">% N. CHU 2018.10.23</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> nargin == <span class="number">0</span></span><br><span class="line">    filepath = fileparts(mfilename(<span class="string">'fullpath'</span>));</span><br><span class="line">    relative_path = <span class="string">'./../test/dir2'</span>;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%% split relative path</span></span><br><span class="line">re_path_split = strsplit(relative_path, <span class="string">'/'</span>);</span><br><span class="line">re_paths = re_path_split;</span><br><span class="line">filepath_split = strsplit(filepath, <span class="string">'/'</span>);</span><br><span class="line">file_paths = filepath_split;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%% backward according to relative path</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="built_in">length</span>(re_path_split)</span><br><span class="line">    <span class="comment">% remove './' case</span></span><br><span class="line">    <span class="keyword">if</span> strcmp(re_path_split(<span class="built_in">i</span>), <span class="string">'.'</span>)</span><br><span class="line">        re_paths(<span class="number">1</span>) = [];</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="comment">% remove '..' case and upward one level</span></span><br><span class="line">    <span class="keyword">if</span> strcmp(re_path_split(<span class="built_in">i</span>), <span class="string">'..'</span>)</span><br><span class="line">        re_paths(<span class="number">1</span>) = [];</span><br><span class="line">        file_paths(<span class="keyword">end</span>) = [];</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%% construct full path with relative path</span></span><br><span class="line">re_path = strjoin(re_paths, <span class="string">'/'</span>);</span><br><span class="line">file_path = strjoin(file_paths, <span class="string">'/'</span>);</span><br><span class="line">abspath = fullfile(file_path, re_path);</span><br><span class="line"></span><br><span class="line"><span class="comment">% add absolute path to search directory</span></span><br><span class="line">addpath(abspath);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%% check path finding result</span></span><br><span class="line"><span class="keyword">if</span> nargin == <span class="number">0</span></span><br><span class="line">    <span class="built_in">disp</span>(filepath);</span><br><span class="line">    <span class="built_in">disp</span>(relative_path);</span><br><span class="line">    <span class="built_in">disp</span>(abspath);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>Currently, I have not found a good solution to find the script location from a subfunction. So this function addmypath() can only be used like this:</p>
+<p>Currently, I have not found a good solution to find the script
+location from a subfunction. So this function addmypath() can only be
+used like this:</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">addmypath(fileparts(mfilename(<span class="string">'fullpath'</span>)), <span class="string">'../dir2'</span>);</span><br></pre></td></tr></table></figure>
-<p>And you must make sure that you have addpath to addmypath.m directory in the first place. In this line, mfilename(‘fullpath’) will return the file name with absolute full path of this file. fileparts() will remove the filename from this string and leave the path direction along.</p>
-<h3 id="best-approach-with-fullfile"><a class="markdownIt-Anchor" href="#best-approach-with-fullfile"></a> Best approach with fullfile()</h3>
-<p>The function addmypath() has the problem to add itself to the search path. After some discussion with my friend, he suggests that the best approach is to replace addmypath() with matlab build-in function fullfile(). Thus the code can be written like this :</p>
+<p>And you must make sure that you have addpath to addmypath.m directory
+in the first place. In this line, mfilename('fullpath') will return the
+file name with absolute full path of this file. fileparts() will remove
+the filename from this string and leave the path direction along.</p>
+<h3 id="best-approach-with-fullfile">Best approach with fullfile()</h3>
+<p>The function addmypath() has the problem to add itself to the search
+path. After some discussion with my friend, he suggests that the best
+approach is to replace addmypath() with matlab build-in function
+fullfile(). Thus the code can be written like this :</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">addpath(fullfile(mfilename(&apos;fullpath&apos;)), &apos;../dir2&apos;);</span><br></pre></td></tr></table></figure>
-<h1 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h1>
-<p>[1] <a href="https://stackoverflow.com/questions/6091064/matlab-is-there-a-way-to-get-the-path-of-the-current-script" target="_blank" rel="noopener">https://stackoverflow.com/questions/6091064/matlab-is-there-a-way-to-get-the-path-of-the-current-script</a></p>
-<p>[2] <a href="https://stackoverflow.com/questions/38802539/find-location-of-current-script-mlx-file-in-matlab" target="_blank" rel="noopener">https://stackoverflow.com/questions/38802539/find-location-of-current-script-mlx-file-in-matlab</a></p>
-<p>[3] <a href="https://www.mathworks.com/help/matlab/ref/strsplit.html" target="_blank" rel="noopener">https://www.mathworks.com/help/matlab/ref/strsplit.html</a></p>
-<p>[4] <a href="https://www.mathworks.com/help/matlab/ref/strjoin.html" target="_blank" rel="noopener">https://www.mathworks.com/help/matlab/ref/strjoin.html</a></p>
+<h1 id="reference">Reference</h1>
+<p>[1] <a
+href="https://stackoverflow.com/questions/6091064/matlab-is-there-a-way-to-get-the-path-of-the-current-script">https://stackoverflow.com/questions/6091064/matlab-is-there-a-way-to-get-the-path-of-the-current-script</a></p>
+<p>[2] <a
+href="https://stackoverflow.com/questions/38802539/find-location-of-current-script-mlx-file-in-matlab">https://stackoverflow.com/questions/38802539/find-location-of-current-script-mlx-file-in-matlab</a></p>
+<p>[3] <a
+href="https://www.mathworks.com/help/matlab/ref/strsplit.html">https://www.mathworks.com/help/matlab/ref/strsplit.html</a></p>
+<p>[4] <a
+href="https://www.mathworks.com/help/matlab/ref/strjoin.html">https://www.mathworks.com/help/matlab/ref/strjoin.html</a></p>
 
         </div>
 

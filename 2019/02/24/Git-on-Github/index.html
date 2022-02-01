@@ -239,37 +239,68 @@
         </header>
 
         <div class="post-content">
-            <p>Git is an important tool for maintaining your code and cooperating with others. It is the default source code version control tool for github. To use github, you need to learn how to use git.</p>
-<h1 id="github-connection"><a class="markdownIt-Anchor" href="#github-connection"></a> Github connection</h1>
-<p>Here, I will discuss how to set up git connection to Github server. Obviously, you need to get a github account first. This process will not be described here. What’s more, if you have a linux server, eg a cloud server, you can even host your own git sever. Here, to contribute to open source project, I will upload part of my codes to github, if these codes are proper to be shared with the general public.</p>
-<h2 id="setup-local-git-configuration"><a class="markdownIt-Anchor" href="#setup-local-git-configuration"></a> Setup local git configuration</h2>
-<h3 id="check-git-installation"><a class="markdownIt-Anchor" href="#check-git-installation"></a> Check git installation</h3>
-<p>You can test whether your linux system has installed git with the command</p>
+            <p>Git is an important tool for maintaining your code and cooperating
+with others. It is the default source code version control tool for
+github. To use github, you need to learn how to use git.</p>
+<h1 id="github-connection">Github connection</h1>
+<p>Here, I will discuss how to set up git connection to Github server.
+Obviously, you need to get a github account first. This process will not
+be described here. What's more, if you have a linux server, eg a cloud
+server, you can even host your own git sever. Here, to contribute to
+open source project, I will upload part of my codes to github, if these
+codes are proper to be shared with the general public.</p>
+<h2 id="setup-local-git-configuration">Setup local git
+configuration</h2>
+<h3 id="check-git-installation">Check git installation</h3>
+<p>You can test whether your linux system has installed git with the
+command</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git</span><br></pre></td></tr></table></figure>
-<p>If there are information about git, your are luck to already have git on your local machine, or you will need to install git to your local linux machine. It should be a easy task, I will not discuss it currently.</p>
-<h3 id="switch-between-ssh-and-https"><a class="markdownIt-Anchor" href="#switch-between-ssh-and-https"></a> Switch between SSH and HTTPs</h3>
-<p>You need to choose a connection method from local linux to github. There are two options: SSH and HTTPs. Follow this link [3] to make this change.</p>
-<h2 id="connecting-to-github-with-ssh"><a class="markdownIt-Anchor" href="#connecting-to-github-with-ssh"></a> Connecting to GitHub with SSH</h2>
-<p>To be able to commit local change to github, you first need to establish a remote connection with your github account. There are two approaches to do this, SSH and HTTPS. I will mainly talk about the SSH method on linux system. There is a very precise introduction on how to connect to github with SSH [1]. The above introduction is a brief version of that one.</p>
-<h3 id="setup-local-ssh-key"><a class="markdownIt-Anchor" href="#setup-local-ssh-key"></a> Setup local SSH key</h3>
+<p>If there are information about git, your are luck to already have git
+on your local machine, or you will need to install git to your local
+linux machine. It should be a easy task, I will not discuss it
+currently.</p>
+<h3 id="switch-between-ssh-and-https">Switch between SSH and HTTPs</h3>
+<p>You need to choose a connection method from local linux to github.
+There are two options: SSH and HTTPs. Follow this link [3] to make this
+change.</p>
+<h2 id="connecting-to-github-with-ssh">Connecting to GitHub with
+SSH</h2>
+<p>To be able to commit local change to github, you first need to
+establish a remote connection with your github account. There are two
+approaches to do this, SSH and HTTPS. I will mainly talk about the SSH
+method on linux system. There is a very precise introduction on how to
+connect to github with SSH [1]. The above introduction is a brief
+version of that one.</p>
+<h3 id="setup-local-ssh-key">Setup local SSH key</h3>
 <p>You can setup the local SSH key with these commands.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;name@mail.com&quot;</span><br></pre></td></tr></table></figure>
-<h3 id="copy-ssh-key-on-github"><a class="markdownIt-Anchor" href="#copy-ssh-key-on-github"></a> Copy SSH key on github</h3>
-<p>Follow the instructioin on [1], you can copy the key content in the file rsa.pub to github. Note, just copy ALL the content of this file. By doing so, your local linux IP will be confirmed as safe ssh connection by github server. Thus, you will be able to connect github git server from your local linux system.</p>
-<h3 id="test-connection"><a class="markdownIt-Anchor" href="#test-connection"></a> Test connection</h3>
-<p>After successfully testing the connection with the below command [1], you should be able commit local files to github.</p>
+<h3 id="copy-ssh-key-on-github">Copy SSH key on github</h3>
+<p>Follow the instructioin on [1], you can copy the key content in the
+file rsa.pub to github. Note, just copy ALL the content of this file. By
+doing so, your local linux IP will be confirmed as safe ssh connection
+by github server. Thus, you will be able to connect github git server
+from your local linux system.</p>
+<h3 id="test-connection">Test connection</h3>
+<p>After successfully testing the connection with the below command [1],
+you should be able commit local files to github.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-<h2 id="git-commands"><a class="markdownIt-Anchor" href="#git-commands"></a> Git commands</h2>
-<p>There are several important commands you should remember to clone remote codes to local machine or to commit local changes to github [2].</p>
-<h3 id="clone-github-repository-to-local"><a class="markdownIt-Anchor" href="#clone-github-repository-to-local"></a> Clone github repository to local</h3>
+<h2 id="git-commands">Git commands</h2>
+<p>There are several important commands you should remember to clone
+remote codes to local machine or to commit local changes to github
+[2].</p>
+<h3 id="clone-github-repository-to-local">Clone github repository to
+local</h3>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># using HTTPS method</span><br><span class="line">git clone https://github.com/user/repository1.git</span><br><span class="line"># using git method</span><br><span class="line">git clone ssh://git@github.com/user/repository1.git</span><br></pre></td></tr></table></figure>
-<h3 id="push-local-change-to-github"><a class="markdownIt-Anchor" href="#push-local-change-to-github"></a> Push local change to github</h3>
+<h3 id="push-local-change-to-github">Push local change to github</h3>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Add new file to local git log</span><br><span class="line">git add .</span><br><span class="line"># commit the new file</span><br><span class="line">git commit -m &quot;Add new file&quot;</span><br><span class="line"># push the local file to github</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-<p>After these operations you should see the new file has been uploaded.</p>
-<h1 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h1>
-<p>[1] <a href="https://help.github.com/en/articles/connecting-to-github-with-ssh" target="_blank" rel="noopener">https://help.github.com/en/articles/connecting-to-github-with-ssh</a></p>
-<p>[2] <a href="https://stackoverflow.com/questions/10364429/how-to-commit-to-remote-git-repository" target="_blank" rel="noopener">https://stackoverflow.com/questions/10364429/how-to-commit-to-remote-git-repository</a></p>
-<p>[3] <a href="https://help.github.com/en/articles/changing-a-remotes-url" target="_blank" rel="noopener">https://help.github.com/en/articles/changing-a-remotes-url</a></p>
+<p>After these operations you should see the new file has been
+uploaded.</p>
+<h1 id="reference">Reference</h1>
+<p>[1]
+https://help.github.com/en/articles/connecting-to-github-with-ssh</p>
+<p>[2]
+https://stackoverflow.com/questions/10364429/how-to-commit-to-remote-git-repository</p>
+<p>[3] https://help.github.com/en/articles/changing-a-remotes-url</p>
 
         </div>
 

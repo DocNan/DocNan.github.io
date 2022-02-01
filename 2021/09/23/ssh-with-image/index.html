@@ -177,13 +177,21 @@
         </header>
 
         <div class="post-content">
-            <p>When I try to access the linux desktop from my macbook with macOS system. It is discovered that direct link to the linux system is all right. However, when I try to plot figure and display it on the macOS side. It is not possible to access the graphics. Then I searched on the Internet and discovered a solution [<a href="https://blog.csdn.net/dobell/article/details/55047811" target="_blank" rel="noopener">https://blog.csdn.net/dobell/article/details/55047811</a>].</p>
-<p>Firstly, you need to adjust the ssh configuration on your linux server. Which shall be the file at: /etc/ssh/sshd_config, and set the value:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">X11 Forwarding yes</span><br><span class="line">X11 Display Offset 10</span><br></pre></td></tr></table></figure>
-<p>Secondly, you need to make adjustment to the ssh configuration file on your macbook notebook:<br />
-/private/etc/ssh/ssh_config and set the value as:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ForwardX11 yes</span><br></pre></td></tr></table></figure>
-<p>Thirdly, you need to download the XQuartz on the macbook. Then install and launch it. Finally, you can open your mac terminal and display the remote linux figure on your local machine.</p>
+            <p>When I try to access the linux desktop from my macbook with macOS
+system. It is discovered that direct link to the linux system is all
+right. However, when I try to plot figure and display it on the macOS
+side. It is not possible to access the graphics. Then I searched on the
+Internet and discovered a solution
+[https://blog.csdn.net/dobell/article/details/55047811].</p>
+<p>Firstly, you need to adjust the ssh configuration on your linux
+server. Which shall be the file at: /etc/ssh/sshd_config, and set the
+value: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">X11 Forwarding yes</span><br><span class="line">X11 Display Offset 10</span><br></pre></td></tr></table></figure></p>
+<p>Secondly, you need to make adjustment to the ssh configuration file
+on your macbook notebook: /private/etc/ssh/ssh_config and set the value
+as: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ForwardX11 yes</span><br></pre></td></tr></table></figure></p>
+<p>Thirdly, you need to download the XQuartz on the macbook. Then
+install and launch it. Finally, you can open your mac terminal and
+display the remote linux figure on your local machine.</p>
 
         </div>
 
@@ -235,7 +243,7 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="../../../11/15/hello-world/">Hello World</a>
+                <a class="prev" rel="prev" href="../../../12/11/hexo-blog-on-windows10/">hexo blog on Windows 10</a>
             
             
             <a class="next" rel="next" href="../../../../2020/07/20/Python-CPU-parallel-computation/">Python CPU parallel computation</a>
