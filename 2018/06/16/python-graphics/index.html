@@ -239,80 +239,56 @@
         </header>
 
         <div class="post-content">
-            <h1 id="pylab1">pylab[1]</h1>
-<h2 id="import-pylab">import pylab</h2>
+            <h1 id="pylab1"><a class="markdownIt-Anchor" href="#pylab1"></a> pylab[1]</h1>
+<h2 id="import-pylab"><a class="markdownIt-Anchor" href="#import-pylab"></a> import pylab</h2>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import pylab</span><br><span class="line">pylab.figure(figsize=(10,9))</span><br><span class="line">pylab.plot(x,y,&apos;-o&apos;,markersize=20)</span><br><span class="line">pylab.legend([leg1,])</span><br><span class="line">pylab.xlabel(&apos;x(m)&apos;)</span><br><span class="line">pylab.ylabel(&apos;y(m)&apos;)</span><br><span class="line">pylab.show()</span><br></pre></td></tr></table></figure>
-<h2 id="display-latex-formula-in-xlabel-ylabel2">display latex formula
-in xlabel, ylabel[2]</h2>
+<h2 id="display-latex-formula-in-xlabel-ylabel2"><a class="markdownIt-Anchor" href="#display-latex-formula-in-xlabel-ylabel2"></a> display latex formula in xlabel, ylabel[2]</h2>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pylab.xlabel(r&apos;$latex symbols$&apos;)</span><br><span class="line">pylab.legend([&apos;$latex \pi=x^2$&apos;,])</span><br></pre></td></tr></table></figure>
-<h2 id="display-only-one-marker-point-in-legend-3">display only one
-marker point in legend [3]</h2>
+<h2 id="display-only-one-marker-point-in-legend-3"><a class="markdownIt-Anchor" href="#display-only-one-marker-point-in-legend-3"></a> display only one marker point in legend [3]</h2>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from pylab import *</span><br><span class="line">rcParams[&apos;legend.numpoints&apos;] = 1</span><br></pre></td></tr></table></figure>
-<h2 id="text-annotation-4">text annotation [4]</h2>
+<h2 id="text-annotation-4"><a class="markdownIt-Anchor" href="#text-annotation-4"></a> text annotation [4]</h2>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pylab.text(rho_LFM,Te_LFM/1000+0.01,LFM_str,fontsize=15)</span><br></pre></td></tr></table></figure>
-<h2 id="set-default-fontsize-for-all-figure-elements">set default
-fontsize for all figure elements</h2>
+<h2 id="set-default-fontsize-for-all-figure-elements"><a class="markdownIt-Anchor" href="#set-default-fontsize-for-all-figure-elements"></a> set default fontsize for all figure elements</h2>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import pylab</span><br><span class="line">from pylab import *</span><br><span class="line">rcParams.update(&#123;&apos;font.size&apos;:15&#125;)</span><br></pre></td></tr></table></figure>
-<h2
-id="tight-layout-if-the-text-or-edges-of-the-figure-are-covered">tight
-layout if the text or edges of the figure are covered</h2>
+<h2 id="tight-layout-if-the-text-or-edges-of-the-figure-are-covered"><a class="markdownIt-Anchor" href="#tight-layout-if-the-text-or-edges-of-the-figure-are-covered"></a> tight layout if the text or edges of the figure are covered</h2>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fig.tight_layout()</span><br></pre></td></tr></table></figure>
-<h2 id="turn-grid-and-minorticks-on">turn grid and minorticks on</h2>
+<h2 id="turn-grid-and-minorticks-on"><a class="markdownIt-Anchor" href="#turn-grid-and-minorticks-on"></a> turn grid and minorticks on</h2>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pylab.grid(&apos;on&apos;)</span><br><span class="line">pylab.minorticks_on()</span><br><span class="line"># adjust the marker size of major and minor label ticks</span><br><span class="line">pylab.tick_params(which=&apos;major&apos;,labelsize=15,width=2,length=10,color=&apos;black&apos;)</span><br><span class="line">pylab.tick_params(which=&apos;minor&apos;,width=1,length=5)</span><br></pre></td></tr></table></figure>
-<h2 id="colormaps-in-pylab-5">colormaps in pylab [5]</h2>
-<p>In python pylab module, you can choose many colormaps. Such as:
-'jet', 'hsv', 'pink', 'copper', etc. ## set axis as log scale [6]
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pylab.yscale(&apos;log&apos;)</span><br></pre></td></tr></table></figure></p>
-<h2 id="line-and-marker-style-setting">line and marker style
-setting</h2>
-<h3 id="set-marker-size-7">set marker size [7]</h3>
+<h2 id="colormaps-in-pylab-5"><a class="markdownIt-Anchor" href="#colormaps-in-pylab-5"></a> colormaps in pylab [5]</h2>
+<p>In python pylab module, you can choose many colormaps. Such as: ‘jet’, ‘hsv’, ‘pink’, ‘copper’, etc.</p>
+<h2 id="set-axis-as-log-scale-6"><a class="markdownIt-Anchor" href="#set-axis-as-log-scale-6"></a> set axis as log scale [6]</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pylab.yscale(&apos;log&apos;)</span><br></pre></td></tr></table></figure>
+<h2 id="line-and-marker-style-setting"><a class="markdownIt-Anchor" href="#line-and-marker-style-setting"></a> line and marker style setting</h2>
+<h3 id="set-marker-size-7"><a class="markdownIt-Anchor" href="#set-marker-size-7"></a> set marker size [7]</h3>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pylab.plot(S,&apos;o&apos;,markersize=10)</span><br></pre></td></tr></table></figure>
-<h3 id="set-tick-and-label-value-formate-9">set tick and label value
-formate [9]</h3>
+<h3 id="set-tick-and-label-value-formate-9"><a class="markdownIt-Anchor" href="#set-tick-and-label-value-formate-9"></a> set tick and label value formate [9]</h3>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">from matplotlib.ticker import FormatStrFormatter</span><br><span class="line">matplotlib.pyplot.plot(x1, y1)</span><br><span class="line">ax = matplotlib.pyplot.gca()</span><br><span class="line"># set x axis as float format with 2 order after decimal point </span><br><span class="line">ax.xaxis.set_major_formatter(FormatStrFormatter(&apos;%.2f&apos;))</span><br><span class="line">3 set y axis as round format</span><br><span class="line">ax.yaxis.set_major_formatter(FormatStrFormatter(&apos;%d&apos;))</span><br><span class="line"># set x axis as scitific formate for 1e-9</span><br><span class="line">ax.yaxis.set_major_formatter(FuncFormatter(lambda x1, pos: (&apos;%.1f&apos;)%(x1*1e9)))</span><br><span class="line">ax.set_ylabel(&apos;microseconds (1E-9)&apos;)</span><br><span class="line"># other method to set tick format</span><br><span class="line"># ax.plt.ticklabel_format(axis=&apos;x&apos;, style=&apos;sci&apos;, scilimits=(-1,1))</span><br><span class="line"># plt.ticklabel_format(axis=&apos;x&apos;, style=&apos;plain&apos;)</span><br></pre></td></tr></table></figure>
-<h3 id="set-colorbar-tick-format-10">set colorbar tick format [10]</h3>
+<h3 id="set-colorbar-tick-format-10"><a class="markdownIt-Anchor" href="#set-colorbar-tick-format-10"></a> set colorbar tick format [10]</h3>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matplotlib.pyplot.colorbar(format = &apos;%.1f&apos;)</span><br></pre></td></tr></table></figure>
-<h1 id="subplot">subplot</h1>
-<h2 id="multiple-subplot">multiple subplot</h2>
-<p>The combination process of multiple subplot can be understood with
-the help of the above figure.</p>
-<h2 id="link-axis-of-subplot-11">link axis of subplot [11]</h2>
+<h1 id="subplot"><a class="markdownIt-Anchor" href="#subplot"></a> subplot</h1>
+<h2 id="multiple-subplot"><a class="markdownIt-Anchor" href="#multiple-subplot"></a> multiple subplot</h2>
+<p>The combination process of multiple subplot can be understood with the help of the above figure.</p>
+<h2 id="link-axis-of-subplot-11"><a class="markdownIt-Anchor" href="#link-axis-of-subplot-11"></a> link axis of subplot [11]</h2>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ax1 = plt.subplot(2, 1, 1)</span><br><span class="line">ax2 = plt.subplot(2, 1, 2, sharex = ax1, sharey = ax1)</span><br></pre></td></tr></table></figure>
-<h1 id="contour-plot">contour plot</h1>
-<h2 id="contourf">contourf</h2>
+<h1 id="contour-plot"><a class="markdownIt-Anchor" href="#contour-plot"></a> contour plot</h1>
+<h2 id="contourf"><a class="markdownIt-Anchor" href="#contourf"></a> contourf</h2>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pylab.figure()</span><br><span class="line">pylab.contourf(TP_zoom, PHI_zoom*180/pi, T_probes_stand_zoom, interpolation = &apos;gaussian&apos;)</span><br><span class="line">pylab.xlim([t[0], t[0] + 8*1.0/f_MHD])</span><br><span class="line">pylab.xlabel(&apos;t (s)&apos;)</span><br><span class="line">pylab.ylabel(&apos;phi (degree)&apos;)</span><br><span class="line">pylab.title(&apos;n = &apos;+str(n)+&apos;, f = &apos;+str(f_MHD/1000)+&apos; kHz&apos;)</span><br></pre></td></tr></table></figure>
-<p>This is a simple scirpt to show the toroidal mode structure of an MHD
-mode. The option interpolation = 'gaussian' controls whether to make
-smooth to the contourf plot, transformation between color region.</p>
-<h2 id="set-colormap-range-8">set colormap range [8]</h2>
+<p>This is a simple scirpt to show the toroidal mode structure of an MHD mode. The option interpolation = ‘gaussian’ controls whether to make smooth to the contourf plot, transformation between color region.</p>
+<h2 id="set-colormap-range-8"><a class="markdownIt-Anchor" href="#set-colormap-range-8"></a> set colormap range [8]</h2>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Vmax = 0.01</span><br><span class="line">Vmin = -0.01</span><br><span class="line">new_range = numpy.linspace(Vmin, Vmax, 16)</span><br><span class="line">plt.figure(figsize=[8,5])</span><br><span class="line"># pylab.contourf(t_fit, tor_angle*180/pi, sig_fit_matrix.T, 50, cmap = &apos;jet&apos;)</span><br><span class="line">plt.contourf(t_fit, tor_angle*180/pi, sig_fit_matrix.T, new_range, cmap = &apos;jet&apos;)</span><br><span class="line">cbar = plt.colorbar()</span><br></pre></td></tr></table></figure>
-<p>The set of new_range is key to the limit of colormap, it will reset
-the colorbar within this range. The data value outside this range will
-be set to white on the colormap by as default. If this value is set as a
-scalar value N, it will dense the data by N times.</p>
-<h1 id="reference">Reference</h1>
-<p>[1] <a
-href="https://stackoverflow.com/questions/14827650/pyplot-scatter-plot-marker-size">https://stackoverflow.com/questions/14827650/pyplot-scatter-plot-marker-size</a></p>
-<p>[2] <a
-href="https://stackoverflow.com/questions/2140865/using-the-symbol-font-for-greek-symbols-in-tex-via-matplotlib">https://stackoverflow.com/questions/2140865/using-the-symbol-font-for-greek-symbols-in-tex-via-matplotlib</a></p>
-<p>[3] <a
-href="https://stackoverflow.com/questions/6146778/matplotlib-legend-markers-only-once">https://stackoverflow.com/questions/6146778/matplotlib-legend-markers-only-once</a></p>
-<p>[4] <a
-href="https://stackoverflow.com/questions/8482588/putting-text-in-top-left-corner-of-matplotlib-plot">https://stackoverflow.com/questions/8482588/putting-text-in-top-left-corner-of-matplotlib-plot</a></p>
-<p>[5] <a
-href="https://matplotlib.org/users/colormaps.html">https://matplotlib.org/users/colormaps.html</a></p>
-<p>[6] <a
-href="https://stackoverflow.com/questions/773814/plot-logarithmic-axes-with-matplotlib-in-python">https://stackoverflow.com/questions/773814/plot-logarithmic-axes-with-matplotlib-in-python</a></p>
-<p>[7] <a
-href="https://stackoverflow.com/questions/14827650/pyplot-scatter-plot-marker-size">https://stackoverflow.com/questions/14827650/pyplot-scatter-plot-marker-size</a></p>
-<p>[8] <a
-href="https://stackoverflow.com/questions/21952100/setting-the-limits-on-a-colorbar-in-matplotlib">https://stackoverflow.com/questions/21952100/setting-the-limits-on-a-colorbar-in-matplotlib</a></p>
-<p>[9] <a
-href="https://stackoverflow.com/questions/3677368/matplotlib-format-axis-offset-values-to-whole-numbers-or-specific-number">https://stackoverflow.com/questions/3677368/matplotlib-format-axis-offset-values-to-whole-numbers-or-specific-number</a></p>
-<p>[10] <a
-href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.colorbar.html">https://matplotlib.org/api/_as_gen/matplotlib.pyplot.colorbar.html</a></p>
-<p>[11] <a
-href="https://stackoverflow.com/questions/14482422/link-axis-between-different-plot-no-subplots-using-matplotlib">https://stackoverflow.com/questions/14482422/link-axis-between-different-plot-no-subplots-using-matplotlib</a></p>
+<p>The set of new_range is key to the limit of colormap, it will reset the colorbar within this range. The data value outside this range will be set to white on the colormap by as default. If this value is set as a scalar value N, it will dense the data by N times.</p>
+<h1 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h1>
+<p>[1] <a href="https://stackoverflow.com/questions/14827650/pyplot-scatter-plot-marker-size" target="_blank" rel="noopener">https://stackoverflow.com/questions/14827650/pyplot-scatter-plot-marker-size</a></p>
+<p>[2] <a href="https://stackoverflow.com/questions/2140865/using-the-symbol-font-for-greek-symbols-in-tex-via-matplotlib" target="_blank" rel="noopener">https://stackoverflow.com/questions/2140865/using-the-symbol-font-for-greek-symbols-in-tex-via-matplotlib</a></p>
+<p>[3] <a href="https://stackoverflow.com/questions/6146778/matplotlib-legend-markers-only-once" target="_blank" rel="noopener">https://stackoverflow.com/questions/6146778/matplotlib-legend-markers-only-once</a></p>
+<p>[4] <a href="https://stackoverflow.com/questions/8482588/putting-text-in-top-left-corner-of-matplotlib-plot" target="_blank" rel="noopener">https://stackoverflow.com/questions/8482588/putting-text-in-top-left-corner-of-matplotlib-plot</a></p>
+<p>[5] <a href="https://matplotlib.org/users/colormaps.html" target="_blank" rel="noopener">https://matplotlib.org/users/colormaps.html</a></p>
+<p>[6] <a href="https://stackoverflow.com/questions/773814/plot-logarithmic-axes-with-matplotlib-in-python" target="_blank" rel="noopener">https://stackoverflow.com/questions/773814/plot-logarithmic-axes-with-matplotlib-in-python</a></p>
+<p>[7] <a href="https://stackoverflow.com/questions/14827650/pyplot-scatter-plot-marker-size" target="_blank" rel="noopener">https://stackoverflow.com/questions/14827650/pyplot-scatter-plot-marker-size</a></p>
+<p>[8] <a href="https://stackoverflow.com/questions/21952100/setting-the-limits-on-a-colorbar-in-matplotlib" target="_blank" rel="noopener">https://stackoverflow.com/questions/21952100/setting-the-limits-on-a-colorbar-in-matplotlib</a></p>
+<p>[9] <a href="https://stackoverflow.com/questions/3677368/matplotlib-format-axis-offset-values-to-whole-numbers-or-specific-number" target="_blank" rel="noopener">https://stackoverflow.com/questions/3677368/matplotlib-format-axis-offset-values-to-whole-numbers-or-specific-number</a></p>
+<p>[10] <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.colorbar.html" target="_blank" rel="noopener">https://matplotlib.org/api/_as_gen/matplotlib.pyplot.colorbar.html</a></p>
+<p>[11] <a href="https://stackoverflow.com/questions/14482422/link-axis-between-different-plot-no-subplots-using-matplotlib" target="_blank" rel="noopener">https://stackoverflow.com/questions/14482422/link-axis-between-different-plot-no-subplots-using-matplotlib</a></p>
 
         </div>
 

@@ -239,61 +239,40 @@
         </header>
 
         <div class="post-content">
-            <p>For several monthes, I have not updated my personal blog on github
-homepage. Some errors occur with my local blog, which is possibly due to
-the missing of some configuration files. Then I spent sometime to
-recover the blog homepage and try to apply a new theme Chis, which is
-more elegent than previous Aath theme.</p>
-<h1 id="hexo-blog-generation-bugs">hexo blog generation bugs</h1>
-<h2 id="hexo-server-error">hexo server error</h2>
-<p>This bug appear when the updated hexo can find the server command. It
-is caused by the new version update of hexo is not included with the
-hexo-server package by default [1]. To solve this probem, you can just
-install the hexo-sever package.</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-server --save</span><br></pre></td></tr></table></figure></p>
-<h2 id="hexo-server-cannot-get-bug">hexo server Cannot GET bug</h2>
-<p>This error is might be caused with some components are missiong, you
-can solve it via the discreption in this blog [2]. Where you can run the
-below command to check which component is missing:</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm audit fix</span><br></pre></td></tr></table></figure></p>
+            <p>For several monthes, I have not updated my personal blog on github homepage. Some errors occur with my local blog, which is possibly due to the missing of some configuration files. Then I spent sometime to recover the blog homepage and try to apply a new theme Chis, which is more elegent than previous Aath theme.</p>
+<h1 id="hexo-blog-generation-bugs"><a class="markdownIt-Anchor" href="#hexo-blog-generation-bugs"></a> hexo blog generation bugs</h1>
+<h2 id="hexo-server-error"><a class="markdownIt-Anchor" href="#hexo-server-error"></a> hexo server error</h2>
+<p>This bug appear when the updated hexo can find the server command. It is caused by the new version update of hexo is not included with the hexo-server package by default [1]. To solve this probem, you can just install the hexo-sever package.</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-server --save</span><br></pre></td></tr></table></figure>
+<h2 id="hexo-server-cannot-get-bug"><a class="markdownIt-Anchor" href="#hexo-server-cannot-get-bug"></a> hexo server Cannot GET bug</h2>
+<p>This error is might be caused with some components are missiong, you can solve it via the discreption in this blog [2]. Where you can run the below command to check which component is missing:</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm audit fix</span><br></pre></td></tr></table></figure>
 <p>After installed the missing components, run:</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s -p 5000</span><br></pre></td></tr></table></figure></p>
-<p>And open the local blog page at: http://localhost:5000 to check
-whether your new static test page is ok.</p>
-<h2 id="enable-better-latex-rendering">Enable better latex
-rendering</h2>
-<p>The default latex rendering component is hexo-renderer-marked, but
-this way of rendering has some drawbacks. It only support the most
-simple kind of rendering of latex funxtions with inline equation: <span
-class="math inline">\(inline-eq\)</span>, and cross-line equation:</p>
-<p><span class="math display">\[cross-line-eq\]</span></p>
-<p>If you latex math function is written within the begin/fundtion,
-end/function, it will not work. For example:</p>
-<p><span class="math display">\[
-  \begin{equation}
-  \begin{array}{l}
-  A_1 x + B_1 y = C_1\\
-  A_2 x + B_2 y^2 = C_2
-  \end{array}
-  \end{equation}
-  \]</span></p>
-<p>One of the solutions is to use the new latex renderer:
-hexo-rederer-markdown-it-plus as introduced in this blog [3]. With this
-kind of new redering approach, the equations in begin/equation could not
-only be displayed correctly but also be labeled with numbered
-orders.</p>
-<h1 id="deploy-to-your-github-homepage">Deploy to your github
-homepage</h1>
-<p>After these steps, there remains the last problem with deploy of
-local site on github homepage. After some test, I find it's the problem
-with the installation of hexo deployer component [4]. After this
-installation, the local blog is deployed successfully.</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
-<h1 id="reference">Reference</h1>
-<p>[1] https://hexo.io/docs/server<br />
-[2] https://www.jianshu.com/p/af83fc73e525 [3]
-http://dawnote.net/2017/12/01/如何在HEXO中渲染Latex数学公式/ [4]
-https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s -p 5000</span><br></pre></td></tr></table></figure>
+<p>And open the local blog page at: <a href="http://localhost:5000" target="_blank" rel="noopener">http://localhost:5000</a><br />
+to check whether your new static test page is ok.</p>
+<h2 id="enable-better-latex-rendering"><a class="markdownIt-Anchor" href="#enable-better-latex-rendering"></a> Enable better latex rendering</h2>
+<p>The default latex rendering component is hexo-renderer-marked, but this way of rendering has some drawbacks. It only support the most simple kind of rendering of latex funxtions with inline equation: <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mi>n</mi><mi>l</mi><mi>i</mi><mi>n</mi><mi>e</mi><mo>−</mo><mi>e</mi><mi>q</mi></mrow><annotation encoding="application/x-tex">inline-eq</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault">e</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span></span></span></span>, and cross-line equation:</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mi>r</mi><mi>o</mi><mi>s</mi><mi>s</mi><mo>−</mo><mi>l</mi><mi>i</mi><mi>n</mi><mi>e</mi><mo>−</mo><mi>e</mi><mi>q</mi></mrow><annotation encoding="application/x-tex">cross-line-eq
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault">e</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span></span></span></span></span></p>
+<p>If you latex math function is written within the begin/fundtion, end/function, it will not work. For example:</p>
+<p class='katex-block katex-error' title='ParseError: KaTeX parse error: No such environment: equation at position 7: \begin{̲e̲q̲u̲a̲t̲i̲o̲n̲}̲
+\begin{array}{…'>\begin{equation}
+\begin{array}{l}
+A_1 x + B_1 y = C_1\\
+A_2 x + B_2 y^2 = C_2
+\end{array}
+\end{equation}
+</p>
+<p>One of the solutions is to use the new latex renderer: hexo-rederer-markdown-it-plus as introduced in this blog [3]. With this kind of new redering approach, the equations in begin/equation could not only be displayed correctly but also be labeled with numbered orders.</p>
+<h1 id="deploy-to-your-github-homepage"><a class="markdownIt-Anchor" href="#deploy-to-your-github-homepage"></a> Deploy to your github homepage</h1>
+<p>After these steps, there remains the last problem with deploy of local site on github homepage. After some test, I find it’s the problem with the installation of hexo deployer component [4]. After this installation, the local blog is deployed successfully.</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<h1 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h1>
+<p>[1] <a href="https://hexo.io/docs/server" target="_blank" rel="noopener">https://hexo.io/docs/server</a><br />
+[2] <a href="https://www.jianshu.com/p/af83fc73e525" target="_blank" rel="noopener">https://www.jianshu.com/p/af83fc73e525</a><br />
+[3] <a href="http://dawnote.net/2017/12/01/%E5%A6%82%E4%BD%95%E5%9C%A8HEXO%E4%B8%AD%E6%B8%B2%E6%9F%93Latex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/" target="_blank" rel="noopener">http://dawnote.net/2017/12/01/如何在HEXO中渲染Latex数学公式/</a><br />
+[4] <a href="https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html" target="_blank" rel="noopener">https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html</a></p>
 
         </div>
 

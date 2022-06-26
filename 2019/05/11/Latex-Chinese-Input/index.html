@@ -239,28 +239,15 @@
         </header>
 
         <div class="post-content">
-            <p>Recently a problem puzzles me, since I need to insert some Chinese
-characters in my beamer report. I finally find a way out to solve this
-problem with ease. This method also applies to Japanese and Korean
-input, since the ctex package has support for the other two East Asian
-languages by default. To do this, you can just include a new package
-called ctex.</p>
-<h1 id="ctex-package">ctex package</h1>
+            <p>Recently a problem puzzles me, since I need to insert some Chinese characters in my beamer report. I finally find a way out to solve this problem with ease. This method also applies to Japanese and Korean input, since the ctex package has support for the other two East Asian languages by default. To do this, you can just include a new package called ctex.</p>
+<h1 id="ctex-package"><a class="markdownIt-Anchor" href="#ctex-package"></a> ctex package</h1>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">\documentclass&#123;beamer&#125;</span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line">\usepackage[UTF8]&#123;ctex&#125;</span><br><span class="line">中文测试</span><br><span class="line">日本語のテスト</span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="ctexart-documentclass">ctexart documentclass</h1>
-<p>There is also a Chinese specialized document type called "ctexart".
-However, it is a document type, so if you just wish to use beamer
-document type, you can not define another ctexart type for one document.
-Thus you must insert Chinese using a new package but the document
-class.</p>
+<h1 id="ctexart-documentclass"><a class="markdownIt-Anchor" href="#ctexart-documentclass"></a> ctexart documentclass</h1>
+<p>There is also a Chinese specialized document type called “ctexart”. However, it is a document type, so if you just wish to use beamer document type, you can not define another ctexart type for one document. Thus you must insert Chinese using a new package but the document class.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">\documentclass[UTF8]&#123;ctexart&#125;</span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line">文章内容。</span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure>
-<p>When you are writing a scientific document, do you only know
-MicroSoft Word? No, MS Word is not the only choice, you can actually use
-latex to write beautiful beamer report, article and even conference
-poster.</p>
-<h1 id="reference">Reference</h1>
-<p>[1]
-https://tex.stackexchange.com/questions/17611/how-does-one-type-chinese-in-latex</p>
+<p>When you are writing a scientific document, do you only know MicroSoft Word? No, MS Word is not the only choice, you can actually use latex to write beautiful beamer report, article and even conference poster.</p>
+<h1 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h1>
+<p>[1] <a href="https://tex.stackexchange.com/questions/17611/how-does-one-type-chinese-in-latex" target="_blank" rel="noopener">https://tex.stackexchange.com/questions/17611/how-does-one-type-chinese-in-latex</a></p>
 
         </div>
 

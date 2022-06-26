@@ -239,44 +239,28 @@
         </header>
 
         <div class="post-content">
-            <p>Comparing with matlab/python, fortran program runs faster for loops
-after compiling. Although fortran is an old language, it is capable of
-parallel computing and still wildly used in scientific computing
-today.</p>
-<h1 id="hello-world">Hello world</h1>
-<p>First we introduce a minibird example of the fortran programming for
-a fresh start.</p>
-<h2 id="helloworld-source-code">Helloworld source code</h2>
-<p>Here we demonstrate a minibird Helloworld example of the fotran
-programming language.</p>
+            <p>Comparing with matlab/python, fortran program runs faster for loops after compiling. Although fortran is an old language, it is capable of parallel computing and still wildly used in scientific computing today.</p>
+<h1 id="hello-world"><a class="markdownIt-Anchor" href="#hello-world"></a> Hello world</h1>
+<p>First we introduce a minibird example of the fortran programming for a fresh start.</p>
+<h2 id="helloworld-source-code"><a class="markdownIt-Anchor" href="#helloworld-source-code"></a> Helloworld source code</h2>
+<p>Here we demonstrate a minibird Helloworld example of the fotran programming language.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">! helloworld.f90 test</span><br><span class="line">program main</span><br><span class="line">    implicit none</span><br><span class="line">    write(*,*) &quot;Hello !&quot;</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<h2 id="complile-and-run-fortran-on-linux">Complile and run fortran on
-linux</h2>
+<h2 id="complile-and-run-fortran-on-linux"><a class="markdownIt-Anchor" href="#complile-and-run-fortran-on-linux"></a> Complile and run fortran on linux</h2>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ifort/gfortran helloworld.f90 -o hello.out</span><br><span class="line">./hello.out</span><br></pre></td></tr></table></figure>
-<p>After execute these command in terminal, you should be able to view
-the printed output in your terminal window. Here, ifort is for intel
-fortran compiler, gfortran is for GNU fortran compiler.</p>
-<h1 id="function-definition">Function definition</h1>
-<h2 id="singular-value-function">Singular value function</h2>
-<p>Here we demonstrate the definition of a single value function z =
-f(x, y).</p>
+<p>After execute these command in terminal, you should be able to view the printed output in your terminal window. Here, ifort is for intel fortran compiler, gfortran is for GNU fortran compiler.</p>
+<h1 id="function-definition"><a class="markdownIt-Anchor" href="#function-definition"></a> Function definition</h1>
+<h2 id="singular-value-function"><a class="markdownIt-Anchor" href="#singular-value-function"></a> Singular value function</h2>
+<p>Here we demonstrate the definition of a single value function z = f(x, y).</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">program main</span><br><span class="line">    implicit none</span><br><span class="line">    real :: x = 3</span><br><span class="line">    real :: y = 2</span><br><span class="line">    real :: z</span><br><span class="line">    real, extent :: fun1</span><br><span class="line">    z = add(x, y)</span><br><span class="line">    write (*, *) z</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">function fun1(x, y)</span><br><span class="line">    implicit none</span><br><span class="line">    real :: x, y</span><br><span class="line">    real :: fun1</span><br><span class="line">    fun1 = x*y</span><br><span class="line">    return</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<h2 id="multivalue-function">Multivalue function</h2>
-<p>Here we demonstrate the definition of a multivalue function [c, d] =
-f(a, b). Output of more than one variable, you should use subroutine
-other than function. Function format in fortran can only have one
-output.</p>
+<h2 id="multivalue-function"><a class="markdownIt-Anchor" href="#multivalue-function"></a> Multivalue function</h2>
+<p>Here we demonstrate the definition of a multivalue function [c, d] = f(a, b). Output of more than one variable, you should use subroutine other than function. Function format in fortran can only have one output.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">program main</span><br><span class="line">    implicit none</span><br><span class="line">    real :: a, b, c, d</span><br><span class="line"></span><br><span class="line">    a = 10</span><br><span class="line">    b = 30</span><br><span class="line">    call multifun(a, b, c, d)</span><br><span class="line">    write (*, *) a</span><br><span class="line">    write (*, *) b</span><br><span class="line">    write (*, *) c</span><br><span class="line">    write (*, *) d</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">subroutine multifun(a, b, c, d)</span><br><span class="line">    ! reference [1] https://stackoverflow.com/questions</span><br><span class="line">    ! /37120263/function-which-returns-multiple-values</span><br><span class="line">    implicit none</span><br><span class="line">    real, intent(in) :: a, b</span><br><span class="line">    real, intent(out):: c, d</span><br><span class="line">    c = a + b</span><br><span class="line">    d = a*b</span><br><span class="line">end subroutine</span><br></pre></td></tr></table></figure>
-<h2 id="optional-inputs">Optional inputs</h2>
-<p>The optional inputs of fortran is a bit like python, where you can
-given the inputs of fortran variable without consider their correct
-order [1].</p>
+<h2 id="optional-inputs"><a class="markdownIt-Anchor" href="#optional-inputs"></a> Optional inputs</h2>
+<p>The optional inputs of fortran is a bit like python, where you can given the inputs of fortran variable without consider their correct order [1].</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">module procs</span><br><span class="line">contains</span><br><span class="line">  real function calc (first, second, third)</span><br><span class="line">  implicit none</span><br><span class="line">  real, intent(in) :: first, second, third</span><br><span class="line">  calc = (first - second)/third</span><br><span class="line">  end function procs</span><br><span class="line">end module procs</span><br><span class="line"></span><br><span class="line">program test_keywords</span><br><span class="line">use procs</span><br><span class="line">implicit none</span><br><span class="line">write (*,*) cals(3, 1, 2)</span><br><span class="line">write (*,*) calc(first=3, second=1, third=2)</span><br><span class="line">write (*,*) calc(third=2, first=3, second=1)</span><br><span class="line">end program test_keywords</span><br></pre></td></tr></table></figure>
-<p>All the three methods to call the function cals() returns the same
-result regardless of the calling order of the arguments.</p>
-<h1 id="reference">Reference</h1>
-<p>[1] S. Chapman, 2007, "fotran 95/2003 for scientists and engineers",
-3rd edition, McGraw-Hill press..</p>
+<p>All the three methods to call the function cals() returns the same result regardless of the calling order of the arguments.</p>
+<h1 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h1>
+<p>[1] S. Chapman, 2007, “fotran 95/2003 for scientists and engineers”, 3rd edition, McGraw-Hill press…</p>
 
         </div>
 

@@ -239,41 +239,16 @@
         </header>
 
         <div class="post-content">
-            <p>Recently, I spend some time to fix my PC and install a new operation
-system. Therefore, I would like to make a small summary on the choice of
-the OS and environment configuration.</p>
-<p>First, let's talk about the choice of operation systems. There exists
-many alternatives of systems which we can use, like Windows, MacOS,
-Linux. Since Windows is not fit to be a super scientific (SCI)
-computation server, we do not talk about it here. MacOS is bond with
-both a good computation environment as well as a good GUI interface,
-however, it is way too expensive to equip an Mac pro for SCI computation
-with same performance like PC. Then the only choice left is Linux.
-However, even the small portion of Linux contains many distributions.
-Although you can say that the open source feature of Linux add its
-diversity, however it also caused the segmentation of distributions and
-dependence problems. Both Windows and MacOS left the problem of software
-dependence to the application developers. For the installation of
-applications on these two systems, the user just need to click the
-Graphic window buttons following several steps, where the developers
-serve the users as god. However, in Linux, you have to be a computer
-expert to install even a small application with debugging of
-occasionally appeared dependence problems. Some of which you could not
-even get it down from repository sources [1]. Here, I will just describe
-my requirement to the Linux system:</p>
-<ol type="1">
-<li>Good driver support for WiFi card to host hotspot.<br />
-</li>
-<li>Easy installation of Nutstore cloud driver to sync my daily files
-and codes.</li>
-<li>Good driver support for my 25 inch 2K display monitor and NAVIDIA
-graphic card.</li>
-</ol>
+            <p>Recently, I spend some time to fix my PC and install a new operation system. Therefore, I would like to make a small summary on the choice of the OS and environment configuration.</p>
+<p>First, let’s talk about the choice of operation systems. There exists many alternatives of systems which we can use, like Windows, MacOS, Linux. Since Windows is not fit to be a super scientific (SCI) computation server, we do not talk about it here. MacOS is bond with both a good computation environment as well as a good GUI interface, however, it is way too expensive to equip an Mac pro for SCI computation with same performance like PC. Then the only choice left is Linux. However, even the small portion of Linux contains many distributions. Although you can say that the open source feature of Linux add its diversity, however it also caused the segmentation of distributions and dependence problems. Both Windows and MacOS left the problem of software dependence to the application developers. For the installation of applications on these two systems, the user just need to click the Graphic window buttons following several steps, where the developers serve the users as god. However, in Linux, you have to be a computer expert to install even a small application with debugging of occasionally appeared dependence problems. Some of which you could not even get it down from repository sources [1]. Here, I will just describe my requirement to the Linux system:</p>
+<p>(1) Good driver support for WiFi card to host hotspot.<br />
+(2) Easy installation of Nutstore cloud driver to sync my daily files and codes.<br />
+(3) Good driver support for my 25 inch 2K display monitor and NAVIDIA graphic card.</p>
 <p>To achieve the above goals, I tried many Linux systems.</p>
 <table>
 <thead>
-<tr class="header">
-<th>Systems  Goals</th>
+<tr>
+<th>Systems \ Goals</th>
 <th>WiFi driver</th>
 <th>Nutstore</th>
 <th>2K display</th>
@@ -281,35 +256,35 @@ graphic card.</li>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>CentOS 7</td>
 <td>NO</td>
 <td>YES</td>
 <td>YES</td>
 <td>YES</td>
 </tr>
-<tr class="even">
+<tr>
 <td>CentOS 8</td>
 <td>YES</td>
 <td>NO</td>
 <td>YES</td>
 <td>YES</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Open SUSE</td>
 <td>?</td>
 <td>?</td>
 <td>YES</td>
 <td>?</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Ubuntu 18</td>
 <td>YES</td>
 <td>NO</td>
 <td>YES</td>
 <td>NO</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Deepin</td>
 <td>YES</td>
 <td>YES</td>
@@ -318,108 +293,46 @@ graphic card.</li>
 </tr>
 </tbody>
 </table>
-<p>In the end, I simply choose Deepin linux, because it have good
-support for WiFi driver and you could install Nutstore from its APP
-store with ease. For the problem with 2K display, I found it is not
-consistent with Intel graphic card. However if you have NAVIDIA graphic
-card and use it for display output, then the 2K display can be well
-supported. Although it is not stable and crashes sometimes, I think it
-can be tolerated.</p>
-<p>The rest job is just configure a good SIC computational environment.
-This can mainly be achieved with installation of programs and
-modification of .bashrc profiles. Since the Nutstore sync driver
-requires the support of python version 2., we can only make a local
-installation of python 3 but globally. After install Anaconda python in
-version 3., I make these changes to my “.bashrc” file.</p>
+<p>In the end, I simply choose Deepin linux, because it have good support for WiFi driver and you could install Nutstore from its APP store with ease. For the problem with 2K display, I found it is not consistent with Intel graphic card. However if you have NAVIDIA graphic card and use it for display output, then the 2K display can be well supported. Although it is not stable and crashes sometimes, I think it can be tolerated.</p>
+<p>The rest job is just configure a good SIC computational environment. This can mainly be achieved with installation of programs and modification of .bashrc profiles. Since the Nutstore sync driver requires the support of python version 2., we can only make a local installation of python 3 but globally. After install Anaconda python in version 3., I make these changes to my “\home\username.bashrc” file.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># configure linux calculation environment in .bashrc file</span><br><span class="line">alias ipython3=&apos;/home/nan/anaconda3/bin/ipython3&apos;</span><br><span class="line">alias spyder3=&apos;/home/nan/anaconda3/bin/spyder&apos;</span><br><span class="line">alias pip3=&apos;/home/nan/anaconda3/bin/pip&apos;</span><br><span class="line">alias conda3=&apos;/home/nan/anaconda3/bin/conda&apos;</span><br></pre></td></tr></table></figure>
 <p>After this change, run</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># active modified environment</span><br><span class="line">source ~/.bashrc</span><br><span class="line"># install MDSplus module to python 3 [2]</span><br><span class="line">conda3 install -c conda-forge mdsplus</span><br></pre></td></tr></table></figure>
-<p>To active these changes. After this step, you can call python3 from
-the terminal at any time and read fusion data with MDSplus.</p>
-<h1 id="install-typing-inputs-application">Install typing inputs
-application</h1>
-<p>If you install Sogou input application, you will find that you can
-not call the system input settings. Therefore, I find it frustrated to
-have the Chinese input as default every time I opens a new application.
-To solve this bug, I installed the iFly input methods. In which, there
-leaves a system input configuration option button. By clicking it, I
-change the system priority of the two input methods. This input
-applications can be installed from the Deepin APP store.</p>
-<h1 id="install-texlive2019">Install Texlive2019</h1>
-<p>First you can download Texlive2019.iso image from the nearest CTAN
-repository. Then mount it on your Linux system [3].</p>
+<p>To active these changes. After this step, you can call python3 from the terminal at any time and read fusion data with MDSplus.</p>
+<h1 id="install-typing-inputs-application"><a class="markdownIt-Anchor" href="#install-typing-inputs-application"></a> Install typing inputs application</h1>
+<p>If you install Sogou input application, you will find that you can not call the system input settings. Therefore, I find it frustrated to have the Chinese input as default every time I opens a new application. To solve this bug, I installed the iFly input methods. In which, there leaves a system input configuration option button. By clicking it, I change the system priority of the two input methods. This input applications can be installed from the Deepin APP store.</p>
+<h1 id="install-texlive2019"><a class="markdownIt-Anchor" href="#install-texlive2019"></a> Install Texlive2019</h1>
+<p>First you can download Texlive2019.iso image from the nearest CTAN repository. Then mount it on your Linux system [3].</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /mnt/iso</span><br><span class="line">sudo mount -o loop /path/to/image.iso /mnt/iso</span><br><span class="line">cd /mnt/iso</span><br><span class="line">sudo ./install-tl</span><br></pre></td></tr></table></figure>
-<p>Then type the option I in the following request from the terminal.
-After about one hour, Texlive2019 shall be installed to your Linux
-system. This mounted iso image shall be removed on next shutdown of
-computer. However, you can still manually unmount with this command.</p>
+<p>Then type the option I in the following request from the terminal. After about one hour, Texlive2019 shall be installed to your Linux system. This mounted iso image shall be removed on next shutdown of computer. However, you can still manually unmount with this command.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /mnt/iso/</span><br></pre></td></tr></table></figure>
-<p>After a successful installation, there should be these instruction
-from the terminal.</p>
+<p>After a successful installation, there should be these instruction from the terminal.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Welcome to TeX Live!</span><br><span class="line"></span><br><span class="line">See /usr/local/texlive/2019/index.html for links to documentation.</span><br><span class="line">The TeX Live web site (https://tug.org/texlive/) contains any updates and</span><br><span class="line">corrections. TeX Live is a joint project of the TeX user groups around the</span><br><span class="line">world; please consider supporting it by joining the group best for you. The</span><br><span class="line">list of groups is available on the web at https://tug.org/usergroups.html.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Add /usr/local/texlive/2019/texmf-dist/doc/man to MANPATH.</span><br><span class="line">Add /usr/local/texlive/2019/texmf-dist/doc/info to INFOPATH.</span><br><span class="line">Most importantly, add /usr/local/texlive/2019/bin/x86_64-linux</span><br><span class="line">to your PATH for current and future sessions.</span><br><span class="line">Logfile: /usr/local/texlive/2019/install-tl.log</span><br></pre></td></tr></table></figure>
-<p>What you need to do next is just to add the path of texlive to your
-.bashrc file.</p>
+<p>What you need to do next is just to add the path of texlive to your .bashrc file.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export PATH=&quot;/usr/local/texlive/2019/bin/x86_64-linux:$PATH&quot;</span><br><span class="line">export MANPATH=&quot;/usr/local/texlive/2019/texmf-dist/doc/man:$MANPATH&quot;</span><br><span class="line">export INFOPATH=&quot;/usr/local/texlive/2019/texmf-dist/doc/info:$INFOPATH&quot;</span><br></pre></td></tr></table></figure>
 <p>Then, you can active the changes and test the setting.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bashrc</span><br><span class="line">pdflatex</span><br></pre></td></tr></table></figure>
-<p>If it shows the version of this latex, the installation and setting
-is successful.</p>
-<h1 id="install-texstudio">Install TexStudio</h1>
-<p>Texstudio is just a GUI editor plus compiler for latex, it only a
-shell. It uses texlive2019 in background. Actual it is same as you
-compile your latex file from command line. However your should not
-install from the Deepin APP store, because it download the latex for
-texstudio as dependence at the same time. What you need is only a
-texstudio GUI shell for your texlive2019 installed before. Thus we just
-download an texstudio***.AppImage from website such as [4]. Then you
-need to set the permission of this AppImage as "Allow to execute as
-program". The next time you need to use it, just double click this file.
-After you opened texstudio, there might be warning saying that it could
-not find latex. Don't worry, you can add the path of texlive2019 to it
-at:</p>
-<p>Option -&gt; configure -&gt; Build -&gt; Adv. Editor -&gt; Build
-Options -&gt; Commands ($PATH) -&gt;
-/usr/local/texlive/2019/bin/x86_64-linux</p>
-<p>Option -&gt; configure -&gt; Show Advanced Options -&gt; Adv. Editor
--&gt; Additional Search Paths -&gt;
-/usr/local/texlive/2019/bin/x86_64-linux</p>
-<p>Then save changes and restart texstudio, you may be able to compile
-your latex files. If these fails, you might need have patients and
-specify the precise location of the executable bin file to each Latex
-command, eg:</p>
-<p>Option -&gt; configure -&gt; commands: XeLaTex
-"/usr/local/texlive/2019/bin/x86_64-linux/xelatex" -synctex=1
--interaction=nonstopmode %.tex"</p>
-<p>For my Deepin linux, the texstudio works finally in these setting. In
-order to call the texstudio faster from the system, you can also create
-a fast command to call it from terminal. Here is my new command to call
-it in the .bashrc file.</p>
+<p>If it shows the version of this latex, the installation and setting is successful.</p>
+<h1 id="install-texstudio"><a class="markdownIt-Anchor" href="#install-texstudio"></a> Install TexStudio</h1>
+<p>Texstudio is just a GUI editor plus compiler for latex, it only a shell. It uses texlive2019 in background. Actual it is same as you compile your latex file from command line. However your should not install from the Deepin APP store, because it download the latex for texstudio as dependence at the same time. What you need is only a texstudio GUI shell for your texlive2019 installed before. Thus we just download an texstudio***.AppImage from website such as [4]. Then you need to set the permission of this AppImage as “Allow to execute as program”. The next time you need to use it, just double click this file. After you opened texstudio, there might be warning saying that it could not find latex. Don’t worry, you can add the path of texlive2019 to it at:</p>
+<p>Option -&gt; configure -&gt; Build -&gt; Adv. Editor -&gt; Build Options -&gt; Commands ($PATH) -&gt; /usr/local/texlive/2019/bin/x86_64-linux</p>
+<p>Option -&gt; configure -&gt; Show Advanced Options -&gt; Adv. Editor -&gt; Additional Search Paths -&gt; /usr/local/texlive/2019/bin/x86_64-linux</p>
+<p>Then save changes and restart texstudio, you may be able to compile your latex files. If these fails, you might need have patients and specify the precise location of the executable bin file to each Latex command, eg:</p>
+<p>Option -&gt; configure -&gt; commands: XeLaTex “/usr/local/texlive/2019/bin/x86_64-linux/xelatex” -synctex=1 -interaction=nonstopmode %.tex&quot;</p>
+<p>For my Deepin linux, the texstudio works finally in these setting. In order to call the texstudio faster from the system, you can also create a fast command to call it from terminal. Here is my new command to call it in the .bashrc file.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># add shortcut command to Texstudio in .bashrc file</span><br><span class="line">alias tex=&apos;cd /home/nan/Greenwares/ &amp;&amp; ./texstudio-2.12.22-x86_64.AppImage&apos;</span><br></pre></td></tr></table></figure>
-<p>When you are writing in English, an import function of the editor is
-to check and highlight the misspelled words. To check these wrong words
-texstudio can import LireOffice dictionary and use it for checking. Thus
-we just need to go to the official website of LibreOffice and download
-the desired English dictionaries. Texstudio -&gt; Configuration -&gt;
-Language Checking -&gt; Spell Check -&gt; Import Dictionary.</p>
-<h1 id="install-nautilus-file-manager">Install Nautilus file
-manager</h1>
-<p>The default Deepin file manager is not compatible to Nutstore,
-because the sync condition tory icon can not be displayed correctly on
-the files. Therefore I will install Nautilus file manager from APP store
-directly.</p>
-<h1 id="install-gnome-terminal">Install Gnome terminal</h1>
-<p>I used to like the Gnome terminal very much, so I replaced Deepin
-terminal from the APP store. Which also support 'open in terminal'
-option in Nautilus folder.</p>
-<h1 id="install-geditor">Install Geditor</h1>
-<p>Geditor offers good support many programing languages with grammar
-highlight, while support English word misspell highlight. The misspell
-check is an essential function to me.</p>
-<h1 id="references">References</h1>
-<p>[1] https://www.zhihu.com/question/264942661?sort=created [2]
-https://anaconda.org/conda-forge/mdsplus [3]
-https://www.cyberciti.biz/tips/how-to-mount-iso-image-under-linux.html
-[4] https://sourceforge.net/projects/texstudio/</p>
+<p>When you are writing in English, an import function of the editor is to check and highlight the misspelled words. To check these wrong words texstudio can import LireOffice dictionary and use it for checking. Thus we just need to go to the official website of LibreOffice and download the desired English dictionaries. Texstudio -&gt; Configuration -&gt; Language Checking -&gt; Spell Check -&gt; Import Dictionary.</p>
+<h1 id="install-nautilus-file-manager"><a class="markdownIt-Anchor" href="#install-nautilus-file-manager"></a> Install Nautilus file manager</h1>
+<p>The default Deepin file manager is not compatible to Nutstore, because the sync condition tory icon can not be displayed correctly on the files. Therefore I will install Nautilus file manager from APP store directly.</p>
+<h1 id="install-gnome-terminal"><a class="markdownIt-Anchor" href="#install-gnome-terminal"></a> Install Gnome terminal</h1>
+<p>I used to like the Gnome terminal very much, so I replaced Deepin terminal from the APP store. Which also support ‘open in terminal’ option in Nautilus folder.</p>
+<h1 id="install-geditor"><a class="markdownIt-Anchor" href="#install-geditor"></a> Install Geditor</h1>
+<p>Geditor offers good support many programing languages with grammar highlight, while support English word misspell highlight. The misspell check is an essential function to me.</p>
+<h1 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h1>
+<p>[1] <a href="https://www.zhihu.com/question/264942661?sort=created" target="_blank" rel="noopener">https://www.zhihu.com/question/264942661?sort=created</a><br />
+[2] <a href="https://anaconda.org/conda-forge/mdsplus" target="_blank" rel="noopener">https://anaconda.org/conda-forge/mdsplus</a><br />
+[3] <a href="https://www.cyberciti.biz/tips/how-to-mount-iso-image-under-linux.html" target="_blank" rel="noopener">https://www.cyberciti.biz/tips/how-to-mount-iso-image-under-linux.html</a><br />
+[4] <a href="https://sourceforge.net/projects/texstudio/" target="_blank" rel="noopener">https://sourceforge.net/projects/texstudio/</a></p>
 
         </div>
 

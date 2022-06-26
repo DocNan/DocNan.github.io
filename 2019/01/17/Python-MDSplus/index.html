@@ -239,51 +239,27 @@
         </header>
 
         <div class="post-content">
-            <h1 id="install-mdsplus">Install MDSplus</h1>
-<p>MDSplus is the uniform data format for fusion research, however
-installing MDSplus package for python on linux is rather a boring work.
-Many bugs occurred. First you should download the MDSplus package
-[http://www.mdsplus.org/index.php?title=Downloads&amp;open=147569449264929046577&amp;page=Software%2FDownloads].
-Here is some approach to install it. The python3 has been installed on
-the linux. First we follow the official instruction
-[http://www.mdsplus.org/index.php/Documentation:Users:MDSobjects:Python].</p>
-<h2 id="install-mdsplus-with-conda">install MDsplus with conda</h2>
-<p>In the latest updates in 2019 Dec, the conda now includes the MDSplus
-package inside its online installation source. After installation
-Anaconda python release, you can simply use conda command to install the
-MDSplus for your python [https://anaconda.org/conda-forge/mdsplus].</p>
-<h3 id="install-mdsplus-for-python-3">Install MDSplus for python 3</h3>
+            <h1 id="install-mdsplus"><a class="markdownIt-Anchor" href="#install-mdsplus"></a> Install MDSplus</h1>
+<p>MDSplus is the uniform data format for fusion research, however installing MDSplus package for python on linux is rather a boring work. Many bugs occurred. First you should download the MDSplus package [<a href="http://www.mdsplus.org/index.php?title=Downloads&amp;open=147569449264929046577&amp;page=Software%2FDownloads" target="_blank" rel="noopener">http://www.mdsplus.org/index.php?title=Downloads&amp;open=147569449264929046577&amp;page=Software%2FDownloads</a>]. Here is some approach to install it. The python3 has been installed on the linux. First we follow the official instruction [<a href="http://www.mdsplus.org/index.php/Documentation:Users:MDSobjects:Python" target="_blank" rel="noopener">http://www.mdsplus.org/index.php/Documentation:Users:MDSobjects:Python</a>].</p>
+<h2 id="install-mdsplus-with-conda"><a class="markdownIt-Anchor" href="#install-mdsplus-with-conda"></a> install MDsplus with conda</h2>
+<p>In the latest updates in 2019 Dec, the conda now includes the MDSplus package inside its online installation source. After installation Anaconda python release, you can simply use conda command to install the MDSplus for your python [<a href="https://anaconda.org/conda-forge/mdsplus" target="_blank" rel="noopener">https://anaconda.org/conda-forge/mdsplus</a>].</p>
+<h3 id="install-mdsplus-for-python-3"><a class="markdownIt-Anchor" href="#install-mdsplus-for-python-3"></a> Install MDSplus for python 3</h3>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -c conda-forge mdsplus</span><br></pre></td></tr></table></figure>
-<h3 id="install-mdsplus-for-python-2">Install MDSplus for python 2</h3>
+<h3 id="install-mdsplus-for-python-2"><a class="markdownIt-Anchor" href="#install-mdsplus-for-python-2"></a> Install MDSplus for python 2</h3>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -c conda-forge/label/cf201901 mdsplus</span><br></pre></td></tr></table></figure>
-<h2 id="install-with-pip">Install with pip</h2>
+<h2 id="install-with-pip"><a class="markdownIt-Anchor" href="#install-with-pip"></a> Install with pip</h2>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Install via official MDSplus rpm packages/yum source.</span><br><span class="line"># sudo yum install mdsplus-repo.rpm</span><br><span class="line"># sudo yum install mdsplus</span><br><span class="line">$ ~/anaconda3/bin/pip install /usr/local/mdsplus/mdsobjects/python</span><br></pre></td></tr></table></figure>
-<p>This approach will install the official MDSplus to the desired python
-version. But sometimes, the official MDSplus cause some error such as:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exception: Could not load library: Mdsdcl</span><br></pre></td></tr></table></figure> This kinds of bug almost makes me break down. And recently, I
-just found the conda and pip installation method just failed, because
-the package is no longer well supported.</p>
-<h2 id="install-by-copying">Install by copying</h2>
-<p>You can also install it by coping the effective MDSplus python module
-to the site-package. I first copied the effective MDSplus package from
-my mac notebook. Then copy it to the similar location on Linux desktop.
-Then you can first install the MDSplus package for different computer
-system (Windows, MacOS, Linux) following instruction of the official
-website
-[https://www.mdsplus.org/index.php/Latest_RPM's_and_Yum_repositories].
-Then you can copy the installed MDSplus package for python to the
-site-package location of Anaconda python direction of your user
-directory. For an example, the YUM installed MDSplus python package can
-by copied to Anaconda python as:</p>
+<p>This approach will install the official MDSplus to the desired python version. But sometimes, the official MDSplus cause some error such as:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exception: Could not load library: Mdsdcl</span><br></pre></td></tr></table></figure>
+<p>This kinds of bug almost makes me break down. And recently, I just found the conda and pip installation method just failed, because the package is no longer well supported.</p>
+<h2 id="install-by-copying"><a class="markdownIt-Anchor" href="#install-by-copying"></a> Install by copying</h2>
+<p>You can also install it by coping the effective MDSplus python module to the site-package. I first copied the effective MDSplus package from my mac notebook. Then copy it to the similar location on Linux desktop. Then you can first install the MDSplus package for different computer system (Windows, MacOS, Linux) following instruction of the official website [<a href="https://www.mdsplus.org/index.php/Latest_RPM' target="_blank" rel="noopener"s_and_Yum_repositories">https://www.mdsplus.org/index.php/Latest_RPM’s_and_Yum_repositories</a>]. Then you can copy the installed MDSplus package for python to the site-package location of Anaconda python direction of your user directory. For an example, the YUM installed MDSplus python package can by copied to Anaconda python as:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install mdsplus</span><br></pre></td></tr></table></figure>
 <p>The default installation location of MDSplus on Linux system is:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/mdsplus</span><br></pre></td></tr></table></figure>
-<p>To install the MDSplus package for python, you can just copy the yum
-installed MDSplus python module package to the user home directory of
-Anaconda site-package location as:</p>
+<p>To install the MDSplus package for python, you can just copy the yum installed MDSplus python module package to the user home directory of Anaconda site-package location as:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -r /usr/local/mdsplus/python/MDSplus /home/nan/anaconda3/lib/python3.9/site-packages/MDSplus</span><br></pre></td></tr></table></figure>
-<p>After this step, you can check the success of python MDSplus package
-by import MDSplus module in python as:</p>
+<p>After this step, you can check the success of python MDSplus package by import MDSplus module in python as:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ipython</span><br><span class="line">import MDSplus</span><br></pre></td></tr></table></figure>
 <p>If the python respond is OK, then your installation is correct.</p>
 
